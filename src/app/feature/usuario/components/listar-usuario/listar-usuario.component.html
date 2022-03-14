@@ -1,0 +1,8 @@
+<p>listar-usuarios works!</p>
+<div id="usuarios">
+  <ul class="usuarios">
+    <li *ngFor="let item of listaUsuarios | async">
+      <span>{{item.id}}</span> {{item.id}}
+    </li>
+  </ul>
+</div>

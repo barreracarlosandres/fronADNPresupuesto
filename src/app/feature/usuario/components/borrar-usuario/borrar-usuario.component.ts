@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-borrar-producto',
-  templateUrl: './borrar-producto.component.html',
-  styleUrls: ['./borrar-producto.component.css']
+  selector: 'app-borrar-usuario',
+  templateUrl: './borrar-usuario.component.html',
+  styleUrls: ['./borrar-usuario.component.css']
 })
-export class BorrarProductoComponent implements OnInit {
+export class BorrarUsuarioComponent implements OnInit {
 
 
   constructor() { }

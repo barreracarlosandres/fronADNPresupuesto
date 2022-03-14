@@ -9,9 +9,6 @@ import { UsuarioModule } from '@usuario/usuario.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserModule,
     AppRoutingModule,
     ProductoModule,
+    UsuarioModule,
     CoreModule
   ],
   providers: [CookieService],

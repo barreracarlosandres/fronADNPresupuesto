@@ -10,16 +10,17 @@ export class UsuarioService {
   constructor(protected http: HttpService) {}
 
   public consultar() {
+    console.log(`${environment.endpoint}/usuarios`);
     return this.http.doGet<Usuario[]>(`${environment.endpoint}/usuarios`, this.http.optsName('consultar usuarios'));
   }
 
-  public guardar(producto: Usuario) {
-    return this.http.doPost<Usuario, boolean>(`${environment.endpoint}/usuarios`, producto,
+  public guardar(usuario: Usuario) {
+    return this.http.doPost<Usuario, boolean>(`${environment.endpoint}/usuarios`, usuario,
                                                 this.http.optsName('crear/actualizar usuario'));
   }
 
-  public eliminar(producto: Usuario) {
-    return this.http.doDelete<boolean>(`${environment.endpoint}/usuarios/${producto.id}`,
+  public eliminar(usuario: Usuario) {
+    return this.http.doDelete<boolean>(`${environment.endpoint}/usuarios/${usuario.id}`,
                                                  this.http.optsName('eliminar usuario'));
   }
 }
