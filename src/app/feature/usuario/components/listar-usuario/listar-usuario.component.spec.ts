@@ -6,14 +6,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UsuarioService } from '../../shared/service/usuario.service';
-import { Usuario } from '../../shared/model/usuarios';
+import { Usuario } from '../../shared/model/usuario';
 import { HttpService } from 'src/app/core/services/http.service';
 
 describe('ListarUsuarioComponent', () => {
   let component: ListarUsuarioComponent;
   let fixture: ComponentFixture<ListarUsuarioComponent>;
   let usuarioService: UsuarioService;
-  const listaUsuarios: Usuario[] = [new Usuario('1', 'nombre 1', 'apellido 1', '94123')
+  const listaUsuarios: Usuario[] = [new Usuario('1', 'nombre*1', 'apellido 1', '94123')
   , new Usuario('2', 'nombre 2', 'apellido 2', '94234')];
 
   beforeEach(waitForAsync(() => {

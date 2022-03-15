@@ -11,51 +11,52 @@ describe('UsuarioService', () => {
   let httpMock: HttpTestingController;
   let service: UsuarioService;
   const apiEndpointUsuarioConsulta = `${environment.endpoint}/usuarios`;
-  const apiEndpointUsuarios = `${environment.endpoint}/usuarios`;
+  const apiEndpointUsuario = `${environment.endpoint}/usuarios`;
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ProductoService, HttpService]
+      providers: [UsuarioService, HttpService]
     });
     httpMock = injector.inject(HttpTestingController);
-    service = TestBed.inject(ProductoService);
+    service = TestBed.inject(UsuarioService);
   });
 
   it('should be created', () => {
-    const productService: ProductoService = TestBed.inject(ProductoService);
-    expect(productService).toBeTruthy();
+    const usuarioService: UsuarioService = TestBed.inject(UsuarioService);
+    expect(usuarioService).toBeTruthy();
   });
 
-  it('deberia listar productos', () => {
-    const dummyProductos = [
-      new Producto('1', 'Producto 1'), new Producto('2', 'Producto 2')
+  it('deberia listar usuarios', () => {
+    const dummyUsuarios = [
+      new Usuario('1', 'nombre 1', 'apellido 1', '94123'),
+      new Usuario('2', 'nombre 2', 'apellido 2', '94234'),
     ];
-    service.consultar().subscribe(productos => {
-      expect(productos.length).toBe(2);
-      expect(productos).toEqual(dummyProductos);
+    service.consultar().subscribe(usuarios => {
+      expect(usuarios.length).toBe(2);
+      expect(usuarios).toEqual(dummyUsuarios);
     });
-    const req = httpMock.expectOne(apiEndpointProductoConsulta);
+    const req = httpMock.expectOne(apiEndpointUsuarioConsulta);
     expect(req.request.method).toBe('GET');
-    req.flush(dummyProductos);
+    req.flush(dummyUsuarios);
   });
 
-  it('deberia crear un producto', () => {
-    const dummyProducto = new Producto('1', 'Producto 1');
-    service.guardar(dummyProducto).subscribe((respuesta) => {
+  it('deberia crear un usuario', () => {
+    const dummyUsuario = new Usuario('1', 'nombre 1', 'apellido 1', '94123');
+    service.guardar(dummyUsuario).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(apiEndpointProductos);
+    const req = httpMock.expectOne(apiEndpointUsuario);
     expect(req.request.method).toBe('POST');
     req.event(new HttpResponse<boolean>({body: true}));
   });
 
-  it('deberia eliminar un producto', () => {
-    const dummyProducto = new Producto('1', 'Producto 1');
-    service.eliminar(dummyProducto).subscribe((respuesta) => {
+  it('deberia eliminar un usuario', () => {
+    const dummyUsuario = new Usuario('1', 'nombre 1', 'apellido 1', '94123');
+    service.eliminar(dummyUsuario).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(`${apiEndpointProductos}/1`);
+    const req = httpMock.expectOne(`${apiEndpointUsuario}/1`);
     expect(req.request.method).toBe('DELETE');
     req.event(new HttpResponse<boolean>({body: true}));
   });

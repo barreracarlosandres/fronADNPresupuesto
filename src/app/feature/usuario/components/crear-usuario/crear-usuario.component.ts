@@ -20,7 +20,12 @@ export class CrearUsuarioComponent implements OnInit {
 
   crear() {
     let obs = this.usuarioServices.guardar(this.usuarioForm.value);
-    obs.subscribe( err => console.error(err))
+    obs.subscribe( err => console.error(err));
+    //this.refresh();
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
   private construirFormularioUsuario() {
