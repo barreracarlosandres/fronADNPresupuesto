@@ -18,15 +18,17 @@ export class CrearUsuarioComponent implements OnInit {
     this.construirFormularioUsuario();
   }
 
-  cerar() {
-    this.usuarioServices.guardar(this.usuarioForm.value);
+  crear() {
+    let obs = this.usuarioServices.guardar(this.usuarioForm.value);
+    obs.subscribe( err => console.error(err))
   }
 
   private construirFormularioUsuario() {
     this.usuarioForm = new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      descripcion: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
-                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
+      identificacionUsuario: new FormControl('', [Validators.required]),
+      nombre: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      apellido: new FormControl('', [Validators.required]),                                                             
     });
   }
 

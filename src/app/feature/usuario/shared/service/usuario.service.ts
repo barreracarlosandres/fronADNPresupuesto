@@ -10,7 +10,6 @@ export class UsuarioService {
   constructor(protected http: HttpService) {}
 
   public consultar() {
-    console.log(`${environment.endpoint}/usuarios`);
     return this.http.doGet<Usuario[]>(`${environment.endpoint}/usuarios`, this.http.optsName('consultar usuarios'));
   }
 

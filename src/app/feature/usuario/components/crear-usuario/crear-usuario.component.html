@@ -1,22 +1,33 @@
 <h1>Registrar Usuario</h1>
 <h3>Ejemplo validacion de formularios reactivos con directiva</h3>
-<form [formGroup]="usuarioForm" (ngSubmit)="cerar()">
+<form [formGroup]="usuarioForm" (ngSubmit)="crear()">
   <div class="row">
     <div class="col-sm-2">
-      <label>Id:</label>
+      <label>identificación:</label>
     </div>
     <div class="col-sm-4">
-      <input validar type="text" id="idUsuario" name="idUsuario" placeholder="Id usuario" class="form-control"
-        formControlName="id">
+      <input validar type="text" id="identificacionUsuario" name="identificacionUsuario" placeholder="nombre usuario" class="form-control"
+        formControlName="identificacionUsuario">
     </div>
   </div>
   <div class="row">
     <div class="col-sm-2">
-      <label>Descripción:</label>
+      <label>Nombre:</label>
     </div>
     <div class="col-sm-4">
-      <input validar type="text" id="descripcionUsuarui" name="descripcion" placeholder="Descripción usuario"
-        class="form-control" formControlName="descripcion">
+      <input validar type="text" id="NombreUsuario" name="NombreUsuario" placeholder="nombre usuario" class="form-control"
+        formControlName="nombre">
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Apellido:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="ApellidoUsuario" name="ApellidoUsurio" placeholder="apellido usuario"
+        class="form-control" formControlName="apellido">
+    </div>
+  </div>
+  <!--button (click)="crear()">Submit</button-->
+  <button class="button" type="submit">Purchase</button>
 </form>

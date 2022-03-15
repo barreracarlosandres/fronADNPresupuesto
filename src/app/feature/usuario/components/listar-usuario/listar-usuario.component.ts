@@ -15,7 +15,6 @@ export class ListarUsuarioComponent implements OnInit {
   constructor(protected usuarioService: UsuarioService) { }
 
   ngOnInit() {
-    console.log(this.listaUsuarios);
     this.listaUsuarios = this.usuarioService.consultar();  }
 
 }
