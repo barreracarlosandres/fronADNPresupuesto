@@ -1,6 +1,6 @@
 {
   "/presupuesto": {
-    "target": "http://localhost:8000",
+    "target": "http://192.168.53.27:8000",
     "logLevel": "debug"
   }
 
