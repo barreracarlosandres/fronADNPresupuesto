@@ -46,16 +46,17 @@ pipeline {
     stage('Test Unit') {
       steps{
         echo "------------>Test<------------"
-        sh 'npm run test --watch=false --browsers ChromeHeadless'
+        //sh 'npm run test -- --watch=false --browsers ChromeHeadless'
+		sh 'ng test --watch=false --browsers=ChromeHeadless'
       }
     }
 
-    //stage('Test end-to-end') {
-    //  steps{
-    //    echo "------------>Testing Protractor<------------"
-    //    sh 'npm run e2e --'
-    //  }
-    //}
+    stage('Test end-to-end') {
+      steps{
+        echo "------------>Testing Protractor<------------"
+        sh 'npm run e2e --'
+      }
+    }
 
      stage('Static Code Analysis') {
       steps{
