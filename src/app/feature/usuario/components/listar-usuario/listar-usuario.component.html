@@ -1,11 +1,21 @@
 <p>listar-usuarios works!</p>
 <div id="usuario">
-  <ul class="usuario">
-    <li *ngFor="let item of listaUsuarios | async">
-      <span>{{item.id}}</span>
-      <span>{{item.identificacionUsuario}}</span>
-      <span>{{item.nombre}}</span>
-      <span>{{item.apellido}}</span>
-    </li>
-  </ul>
+  <table class="table">
+    <thead class="thead-dark table-bordered table-sm">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Identifiación</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+      </tr>      
+    </thead>
+    <tbody>      
+          <tr *ngFor="let item of listaUsuarios | async">
+            <td scope="row">{{item.id}}</td>
+            <td>{{item.identificacionUsuario}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.apellido}}</td>
+          </tr>                      
+    </tbody>
+  </table>
 </div>
