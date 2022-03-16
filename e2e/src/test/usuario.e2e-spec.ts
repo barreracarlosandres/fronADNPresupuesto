@@ -4,7 +4,7 @@ import { AppPage } from '../app.po';
 import { UsuarioPage } from '../page/usuario/usuario.po';
 
 
-describe('workspace-project Producto', () => {
+describe('workspace-project Usuario', () => {
     let page: AppPage;
     let navBar: NavbarPage;
     let usuario: UsuarioPage;
@@ -22,21 +22,22 @@ describe('workspace-project Producto', () => {
 
 
         page.navigateTo();
-        navBar.clickBotonUsuarios();
+        navBar.clickBotonUsuarios();        
         usuario.clickBotonCrearUsuarios();
         usuario.ingresarNombre(NOMBRE);
         usuario.ingresarApellido(APELLIDO);
-        usuario.ingresarIdentificacion(IDENTIFICACION_USUARIO);
+        usuario.ingresarIdentificacion(IDENTIFICACION_USUARIO);  
+        //usuario.      
 
         // Adicionamos las validaciones despues de la creación
-        // expect(<>).toEqual(<>);
+        //expect('nombre2').toEqual(NOMBRE);
     });
 
-    /*it('Deberia listar usuarios', () => {
-        page.navigateToateTo();
+    it('Deberia listar usuarios', () => {
+        page.navigateTo();
         navBar.clickBotonUsuarios();
         usuario.clickBotonListarUsuarios();
 
-        expect(4).toBe(usuario.contarUsuarios());
-    });*/
+        expect(0).toBe(usuario.contarUsuarios());
+    });
 });

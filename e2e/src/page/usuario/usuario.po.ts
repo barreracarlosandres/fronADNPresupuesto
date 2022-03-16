@@ -3,10 +3,11 @@ import { by, element } from 'protractor';
 export class UsuarioPage {
     private linkCrearUsuario = element(by.id('linkCrearUsuario'));
     private linkListarUsuario = element(by.id('linkListarUsuario'));
+    //private inputNombreUsuario = element(by.id('id'));
     private inputNombreUsuario = element(by.id('nombreUsuario'));
     private inputApellidoUsuario = element(by.id('apellidoUsuario'));
     private inputIdentificacionUsuario = element(by.id('identificacionUsuario'));
-    //private listaUsuarios = element.all(by.css('ul.usuario li'));
+    private listaUsuarios = element.all(by.css('ul.usuario li'));
 
     async clickBotonCrearUsuarios() {
         await this.linkCrearUsuario.click();
@@ -28,7 +29,7 @@ export class UsuarioPage {
         await this.inputIdentificacionUsuario.sendKeys(identificacionUsuario);
     }
 
-    /*async contarUsuarios() {
+    async contarUsuarios() {
         return this.listaUsuarios.count();
-    }*/
+    }
 }
