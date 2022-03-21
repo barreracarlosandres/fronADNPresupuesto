@@ -1,0 +1,30 @@
+<app-borrar-presupuesto #borrarPresupuesto></app-borrar-presupuesto>
+<app-actualizar-presupuesto #actualizarPresupuesto></app-actualizar-presupuesto>
+<div id="presupuesto">
+  <h2>
+    <p id="mydesc">Listado de Presupuestos</p>
+  </h2>  
+  <table class="table table-bordered table-striped table-hover">
+    <caption>Listado actualizado de presupuestos</caption>
+    <thead class="thead-dark table-bordered table-sm">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Identifiación</th>
+        <th scope="col">Varlos Presupuesto</th>
+        <th scope="col">Fecha Presupuesto</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>      
+    </thead>
+    <tbody>      
+          <tr *ngFor="let item of listarPresupuestos | async">
+            <td>{{item.id}}</td>
+            <td>{{item.identificacionUsuario}}</td>
+            <td>{{item.valorPresupuesto}}</td>
+            <td>{{item.fechaPresupuesto}}</td>
+            <td> <button class="btn btn-primary" (click)="actualizarPresupuesto.datosActualizar(item)">Actualizar</button></td>
+            <td> <button class="btn btn-danger" (click)="borrarPresupuesto.borrar(item)">Elimiar</button> </td>
+          </tr>                      
+    </tbody>
+  </table>
+</div>

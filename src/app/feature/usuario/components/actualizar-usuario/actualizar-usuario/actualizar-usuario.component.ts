@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from '@usuario/shared/model/usuario';
 import { UsuarioService } from '@usuario/shared/service/usuario.service';
-import { Observable } from 'rxjs';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
@@ -14,14 +13,14 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
   
 })
 export class ActualizarUsuarioComponent implements OnInit {
-  public usuarioSeActualizara: Observable<Usuario>;
 
   mostrarActualizar:boolean;
   datosUsuario: Usuario = new Usuario('','','', '');
   actualizarForm: FormGroup;
 
-  constructor(protected usuarioServices: UsuarioService
-    , private router:Router) { }
+  constructor(
+        protected usuarioServices: UsuarioService
+      , private router:Router) { }
 
   ngOnInit(): void {    
     this.construirFormularioUsuario();
@@ -53,11 +52,20 @@ export class ActualizarUsuarioComponent implements OnInit {
 
   private construirFormularioUsuario() {
     this.actualizarForm = new FormGroup({
-      id: new FormControl(this.datosUsuario.id, [Validators.required]),
-      identificacionUsuario: new FormControl(this.datosUsuario.identificacionUsuario, [Validators.required]),
-      nombre: new FormControl(this.datosUsuario.nombre, [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
-                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
-      apellido: new FormControl(this.datosUsuario.apellido, [Validators.required]),                                                             
+      id: new FormControl(
+                    this.datosUsuario.id
+                    , [Validators.required]),
+      identificacionUsuario: new FormControl(
+                    this.datosUsuario.identificacionUsuario
+                    , [Validators.required]),
+      nombre: new FormControl(
+                    this.datosUsuario.nombre
+                    , [Validators.required
+                    , Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO)
+                    , Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      apellido: new FormControl(
+                    this.datosUsuario.apellido
+                    , [Validators.required])
     });
   }
 

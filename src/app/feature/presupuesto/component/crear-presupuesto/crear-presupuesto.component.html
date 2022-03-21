@@ -1,0 +1,44 @@
+  
+  <h2>Crear presupuesto</h2>   
+    <form [formGroup]="presupuestoForm" (ngSubmit)="crear()">
+      
+      <div class="row">
+        <div class="col-sm-2">
+          <label>identificación:</label>
+        </div>
+        <div class="col-sm-4">
+          <input  hidden type="number" id="id" name="id" placeholder="" class="form-control"
+            formControlName="id">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>identificación:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="identificacionUsuario" name="identificacionUsuario" placeholder="identificacion usuario" class="form-control"
+            formControlName="identificacionUsuario">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Valor Presupuesto:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="valorPresupuesto" name="valorPresupuesto" placeholder="entero menos de 7 dígitos" class="form-control"
+            formControlName="valorPresupuesto">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Fecha Presupuesto:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="fechaPresupuesto" name="fechaPresupuesto" placeholder="fecha en formato yyy-MM-dd HH:mi:ss"
+            class="form-control" formControlName="fechaPresupuesto">
+        </div>
+      </div>  
+      <div><button class="btn btn-primary" type="submit" >Crear presupuesto</button>        
+      </div>
+    </form>     
+    

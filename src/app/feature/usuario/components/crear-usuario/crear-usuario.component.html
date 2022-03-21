@@ -1,5 +1,8 @@
 <h2>Crear nuevo usuario</h2>
 <form [formGroup]="usuarioForm" (ngSubmit)="crear()">
+  <div *ngIf="mensajeError" class="alert alert-danger" role="alert">
+    A simple danger alert—check it out!
+  </div>
   <div class="row">
     <div class="col-sm-2">
       <label>identificación:</label>

@@ -9,13 +9,13 @@ import { UsuarioService } from '@usuario/shared/service/usuario.service';
 })
 export class BorrarUsuarioComponent implements OnInit {
 
-  noMostrar:boolean;
+  mostrar:boolean;
 
   constructor(protected usuarioService: UsuarioService
     , private router:Router ) { }
 
   ngOnInit() {
-    this.noMostrar=false;    
+    this.mostrar=false;    
   }
 
   borrar(usuario:Usuario):void {

@@ -3,6 +3,7 @@ import { UsuarioService } from '../../shared/service/usuario.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 
@@ -12,9 +13,12 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 })
 export class CrearUsuarioComponent implements OnInit {
   usuarioForm: FormGroup;
+  mensajeError: boolean;
 
-  constructor(protected usuarioServices: UsuarioService
-    , private router:Router) { 
+  constructor(
+      protected usuarioServices: UsuarioService
+    , private router:Router
+    ) { 
       
 }
 
@@ -29,8 +33,8 @@ ngOnInit() {
     obs.subscribe(
       _res=>this.router.navigate(['./usuario'])
       .then(() => {window.location.reload();})
-      
       );
+      
   }
   
   private construirFormularioUsuario() {
