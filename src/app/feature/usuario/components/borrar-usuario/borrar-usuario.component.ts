@@ -16,6 +16,7 @@ export class BorrarUsuarioComponent implements OnInit {
     , private router:Router ) { }
 
   ngOnInit() {
+    this.noMostrar=false;    
   }
 
   borrar(usuario:Usuario):void {

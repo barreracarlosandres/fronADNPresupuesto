@@ -29,7 +29,6 @@ export class ActualizarUsuarioComponent implements OnInit {
 
   datosActualizar(usuario:Usuario): void{
     
-    console.log('Actualizará '+usuario.id)
     this.mostrarActualizar=true;
     this.datosUsuario=usuario;
     this.construirFormularioUsuario()    
