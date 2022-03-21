@@ -10,14 +10,14 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 
 @Component({
   selector: 'app-actualizar-usuario',
-  templateUrl: './actualizar-usuario.component.html',
-  styleUrls: ['./actualizar-usuario.component.css']
+  templateUrl: './actualizar-usuario.component.html'
+  
 })
 export class ActualizarUsuarioComponent implements OnInit {
   public usuarioSeActualizara: Observable<Usuario>;
 
-  mostrarActualizar:boolean = false;
-  datosUsuario: Usuario = new Usuario("","","", "");
+  mostrarActualizar:boolean;
+  datosUsuario: Usuario = new Usuario('','','', '');
   actualizarForm: FormGroup;
 
   constructor(protected usuarioServices: UsuarioService
@@ -31,21 +31,21 @@ export class ActualizarUsuarioComponent implements OnInit {
     
     this.mostrarActualizar=true;
     this.datosUsuario=usuario;
-    this.construirFormularioUsuario()    
+    this.construirFormularioUsuario();
   }
 
   ocultar():void{
-    this.mostrarActualizar=false
+    this.mostrarActualizar=false;
   }
 
   actualizar(): void{
-    this.datosUsuario.nombre = this.actualizarForm.value.nombre
-    this.datosUsuario.apellido = this.actualizarForm.value.apellido
-    let obs = this.usuarioServices.actualizar(this.datosUsuario)    
+    this.datosUsuario.nombre = this.actualizarForm.value.nombre;
+    this.datosUsuario.apellido = this.actualizarForm.value.apellido;
+    let obs = this.usuarioServices.actualizar(this.datosUsuario);   
     obs.subscribe(
       _res=>this.router.navigate(['./usuario'])
       .then(() => {window.location.reload();})
-      )
+      );
 
     this.mostrarActualizar=false;
 

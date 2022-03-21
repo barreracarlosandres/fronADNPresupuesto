@@ -5,8 +5,7 @@ import { UsuarioService } from '@usuario/shared/service/usuario.service';
 
 @Component({
   selector: 'app-borrar-usuario',
-  templateUrl: './borrar-usuario.component.html',
-  styleUrls: ['./borrar-usuario.component.css']
+  templateUrl: './borrar-usuario.component.html'
 })
 export class BorrarUsuarioComponent implements OnInit {
 

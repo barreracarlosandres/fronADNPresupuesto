@@ -46,7 +46,6 @@ describe('ListarUsuarioComponent', () => {
     expect(component).toBeTruthy();
     component.listaUsuarios.subscribe(resultado => {
       expect(2).toBe(resultado.length);
+    });
   });
-});
-
 });

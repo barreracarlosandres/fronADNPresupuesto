@@ -45,4 +45,16 @@ describe('ActualizarUsuarioComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('Actualizar usuario', () => {
+    expect(component.actualizarForm.valid).toBeFalsy();
+    component.actualizarForm.controls.id.setValue('1');
+    component.actualizarForm.controls.nombre.setValue('Juan Carlos');
+    component.actualizarForm.controls.apellido.setValue('Perez');
+    component.actualizarForm.controls.identificacionUsuario.setValue('123');
+    expect(component.actualizarForm.valid).toBeTruthy();
+    expect(component.actualizar()).toBe();
+    fixture.detectChanges();
+    
+  });
+
 });

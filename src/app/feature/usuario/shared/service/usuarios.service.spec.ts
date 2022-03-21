@@ -48,6 +48,16 @@ describe('UsuarioService', () => {
     });
     const req = httpMock.expectOne(apiEndpointUsuario);
     expect(req.request.method).toBe('POST');
+        req.event(new HttpResponse<boolean>({body: true}));
+  });
+
+  it('deberia actualiza un usuario', () => {
+    const dummyUsuario = new Usuario('1', 'nombre 1', 'apellido 1', '94123');
+    service.actualizar(dummyUsuario).subscribe((respuesta) => {
+      expect(respuesta).toEqual(true);
+    });
+    const req = httpMock.expectOne(`${apiEndpointUsuario}/94123`);
+    expect(req.request.method).toBe('PUT');
     req.event(new HttpResponse<boolean>({body: true}));
   });
 

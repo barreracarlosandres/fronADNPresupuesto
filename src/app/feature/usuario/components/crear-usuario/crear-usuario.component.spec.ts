@@ -53,8 +53,11 @@ describe('CrearProductoComponent', () => {
     component.usuarioForm.controls.apellido.setValue('apellido 1');
     component.usuarioForm.controls.identificacionUsuario.setValue('94303');
     expect(component.usuarioForm.valid).toBeTruthy();
+    expect(component.crear()).toBe();
+    fixture.detectChanges();   
 
-    component.crear();
+    //component.crear();
+    //expect( spyOn(usuarioService, 'guardar').and.callThrough()).toBeTruthy;
 
     // Aca validamos el resultado esperado al enviar la petición
     // TODO adicionar expect
