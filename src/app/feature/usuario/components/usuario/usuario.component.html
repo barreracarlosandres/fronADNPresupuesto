@@ -1,8 +1,11 @@
 <nav>
-  <a id="linkUsuarioUsuario" routerLink="./" routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }">Usuario</a>
-  <br><a id="linkCrearUsuario" routerLink="./crear" routerLinkActive="active">Crear usuario</a>
-  <br><a id="linkBorrarUsuario" routerLink="./borrar" routerLinkActive="active">Borrar usuario</a>
-  <br><a id="linkListarUsuario" routerLink="./listar" routerLinkActive="active">listar usuarios</a>
+  <!--a id="linkUsuarioUsuario" routerLink="./" routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">Usuario</a-->
+  <br>
+  <button type="button" name="botton" class="btn btn-primary" [routerLink]="['./crear']">Craer Usuario</button>
+  <!--br><a id="linkBorrarUsuario" routerLink="./borrar" routerLinkActive="active">Borrar usuario</a-->
+  <!--br><a id="linkListarUsuario" routerLink="./listar" routerLinkActive="active">listar usuarios</a-->
 </nav>
+<br>
 <router-outlet></router-outlet>
+<app-listar-usuario></app-listar-usuario>

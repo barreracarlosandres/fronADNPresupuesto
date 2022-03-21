@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UsuarioService } from '@usuario/shared/service/usuario.service';
 import { Usuario } from '@usuario/shared/model/usuario';
 
+
 @Component({
   selector: 'app-listar-usuario',
   templateUrl: './listar-usuario.component.html',
@@ -12,9 +13,13 @@ import { Usuario } from '@usuario/shared/model/usuario';
 export class ListarUsuarioComponent implements OnInit {
   public listaUsuarios: Observable<Usuario[]>;
 
-  constructor(protected usuarioService: UsuarioService) { }
+    constructor(protected usuarioService: UsuarioService) { }
 
   ngOnInit() {
-    this.listaUsuarios = this.usuarioService.consultar();  }
+    this.consultar()
+      }
 
+    consultar():void{
+      this.listaUsuarios = this.usuarioService.consultar();
+    }
 }

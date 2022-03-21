@@ -18,6 +18,13 @@ export class UsuarioService {
                                                 this.http.optsName('crear/actualizar usuario'));
   }
 
+  public actualizar(usuario: Usuario) {    
+    return this.http.doPut<Usuario, boolean>(
+      `${environment.endpoint}/usuarios/${usuario.identificacionUsuario}`
+      ,usuario
+      ,this.http.optsName('actualizar usuario'));
+  }
+
   public eliminar(usuario: Usuario) {
     return this.http.doDelete<boolean>(`${environment.endpoint}/usuarios/${usuario.id}`,
                                                  this.http.optsName('eliminar usuario'));

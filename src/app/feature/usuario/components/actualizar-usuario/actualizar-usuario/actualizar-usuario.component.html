@@ -1,11 +1,21 @@
-<h2>Crear nuevo usuario</h2>
-<form [formGroup]="usuarioForm" (ngSubmit)="crear()">
+<div *ngIf="mostrarActualizar"> 
+<h2>Actualizar usuario</h2>    
+<form [formGroup]="actualizarForm" (ngSubmit)="actualizar()">
+  <div class="row">
+    <div class="col-sm-2">
+      <label>id:</label>
+    </div>
+    <div class="col-sm-4">
+      <input readonly type="text" id="id" name="id" placeholder="id usuario" class="form-control"
+        formControlName="id">
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-2">
       <label>identificación:</label>
     </div>
     <div class="col-sm-4">
-      <input validar type="text" id="identificacionUsuario" name="identificacionUsuario" placeholder="nombre usuario" class="form-control"
+      <input readonly type="text" id="identificacionUsuario" name="identificacionUsuario" placeholder="nombre usuario" class="form-control"
         formControlName="identificacionUsuario">
     </div>
   </div>
@@ -26,6 +36,8 @@
       <input validar type="text" id="apellidoUsuario" name="apellidoUsurio" placeholder="apellido usuario"
         class="form-control" formControlName="apellido">
     </div>
-    <div><button class="btn btn-primary btn-sm" type="submit" >Guardar</button></div>
+    <div><button class="btn btn-primary" type="submit" >Actualizar</button>
+    <button class="btn btn-primary" (click)="ocultar()">Cancelar</button></div>
   </div>  
 </form>
+</div>

@@ -1,20 +1,29 @@
-<p>listar-usuarios works!</p>
+<app-borrar-usuario #borrarUsuario></app-borrar-usuario>
+<app-actualizar-usuario #actualizarUsuario></app-actualizar-usuario>
 <div id="usuario">
-  <table class="table">
+  <h2>
+    <p id="mydesc">Listado de Usuarios</p>
+  </h2>  
+  <table class="table table-bordered table-striped table-hover">
+    <caption>Listado actualizados de usuarios</caption>
     <thead class="thead-dark table-bordered table-sm">
       <tr>
         <th scope="col">Id</th>
         <th scope="col">Identifiación</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>      
     </thead>
     <tbody>      
           <tr *ngFor="let item of listaUsuarios | async">
-            <td scope="row">{{item.id}}</td>
+            <td>{{item.id}}</td>
             <td>{{item.identificacionUsuario}}</td>
             <td>{{item.nombre}}</td>
             <td>{{item.apellido}}</td>
+            <td> <button class="btn btn-primary" (click)="actualizarUsuario.datosActualizar(item)">Actualizar</button> </td>
+            <td> <button class="btn btn-danger" (click)="borrarUsuario.borrar(item)">Elimiar</button> </td>
           </tr>                      
     </tbody>
   </table>
