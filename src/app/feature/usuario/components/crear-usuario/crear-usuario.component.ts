@@ -25,12 +25,12 @@ ngOnInit() {
   }
 
   crear() {
-    let obs = this.usuarioServices.guardar(this.usuarioForm.value)    
+    let obs = this.usuarioServices.guardar(this.usuarioForm.value);  
     obs.subscribe(
       _res=>this.router.navigate(['./usuario'])
       .then(() => {window.location.reload();})
       
-      ) 
+      );
   }
   
   private construirFormularioUsuario() {

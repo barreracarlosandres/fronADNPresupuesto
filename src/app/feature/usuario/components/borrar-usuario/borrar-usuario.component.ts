@@ -9,7 +9,7 @@ import { UsuarioService } from '@usuario/shared/service/usuario.service';
 })
 export class BorrarUsuarioComponent implements OnInit {
 
-  noMostrar:boolean=false;
+  noMostrar:boolean;
 
   constructor(protected usuarioService: UsuarioService
     , private router:Router ) { }
