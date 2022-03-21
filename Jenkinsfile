@@ -45,9 +45,8 @@ pipeline {
     
     stage('Test Unit') {
       steps{
-        echo "------------>Test<------------"
-        //sh 'npm run test -- --watch=false --browsers ChromeHeadless'
-		sh 'ng test --watch=false --browsers=ChromeHeadless'
+        echo "------------>Test<------------"        
+		sh 'npm run test -- --watch=false --browsers ChromeHeadless'
       }
     }
 
@@ -62,7 +61,10 @@ pipeline {
       steps{
         echo '------------>Análisis de código estático<------------'
 		withSonarQubeEnv('Sonar') {
-				sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
+				//sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
+				sonarqubeMasQualityGatesP(sonarKey:'co.com.ceiba.adn:adnangular.presupuesto-carlos.barrera',
+				sonarName:'CeibaADN-ADNAngular-presupuesto-carlos.barrera',
+				sonarPathProperties:'./sonar-project.properties')
 			}
 
       }

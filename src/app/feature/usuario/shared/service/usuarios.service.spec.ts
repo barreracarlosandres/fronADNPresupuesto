@@ -48,7 +48,7 @@ describe('UsuarioService', () => {
     });
     const req = httpMock.expectOne(apiEndpointUsuario);
     expect(req.request.method).toBe('POST');
-        req.event(new HttpResponse<boolean>({body: true}));
+    req.event(new HttpResponse<boolean>({body: true}));
   });
 
   it('deberia actualiza un usuario', () => {
