@@ -43,6 +43,7 @@ export class ActualizarGastoComponent implements OnInit {
       _res=>this.router.navigate(['./gasto']));
     this.mostrar=false;
     }
+    
 
   private construirFormularioGasto() {
     this.actualizarForm = new FormGroup({
