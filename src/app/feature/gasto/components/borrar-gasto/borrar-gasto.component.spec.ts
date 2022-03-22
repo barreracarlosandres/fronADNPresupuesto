@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { HttpService } from '@core/services/http.service';
+import { Gasto } from '@gasto/shared/model/gasto';
 import { GastoService } from '@gasto/shared/service/gasto.service';
 import { SharedModule } from '@shared/shared.module';
 import { of } from 'rxjs';
@@ -37,5 +38,10 @@ describe('BorrarGastoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('debería borrar un gasto', () => {
+    const dummyGasto = new Gasto(1, '94123', 100, '2022-01-01 10:00:00');
+    component.borrar(dummyGasto);    
   });
 });
