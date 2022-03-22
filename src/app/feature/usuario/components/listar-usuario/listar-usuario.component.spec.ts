@@ -1,12 +1,14 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
-import { ListarUsuarioComponent } from './listar-usuario.component';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterTestingModule } from '@angular/router/testing';
-import { UsuarioService } from '../../shared/service/usuario.service';
-import { Usuario } from '../../shared/model/usuario';
-import { HttpService } from 'src/app/core/services/http.service';
-import { SharedModule } from '@shared/shared.module';
+import { HttpClientModule } from "@angular/common/http";
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { NavbarComponent } from "@core/components/navbar/navbar.component";
+import { HttpService } from "@core/services/http.service";
+import { SharedModule } from "@shared/shared.module";
+import { Usuario } from "@usuario/shared/model/usuario";
+import { UsuarioService } from "@usuario/shared/service/usuario.service";
+import { of } from "rxjs";
+import { ListarUsuarioComponent } from "./listar-usuario.component";
+import { MatButtonModule } from '@angular/material/button';
 
 describe('ListarUsuarioComponent', () => {
   let component: ListarUsuarioComponent;
@@ -20,13 +22,14 @@ describe('ListarUsuarioComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ListarUsuarioComponent],
+      declarations: [ListarUsuarioComponent],      
       imports: [
         SharedModule,
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
+        MatButtonModule
       ],
-      providers: [UsuarioService, HttpService]
+      providers: [UsuarioService, HttpService, NavbarComponent]
     })
       .compileComponents();
   }));

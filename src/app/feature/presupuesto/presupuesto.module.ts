@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { PresupuestoRoutingModule } from './presupuesto-routing.module';
 import { BorrarPresupuestoComponent } from './component/borrar-presupuesto/borrar-presupuesto.component';
 import { ListarPresupuestoComponent } from './component/listar-presupuesto/listar-presupuesto.component';
@@ -7,6 +6,7 @@ import { PresupuestoComponent } from './component/presupuesto/presupuesto.compon
 import { SharedModule } from '@shared/shared.module';
 import { ActualizarPresupuestoComponent } from './component/actualizar-presupuesto/actualizar-presupuesto.component';
 import { PresupuestoService } from './shared/service/presupuesto.service';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 
 @NgModule({
@@ -21,6 +21,7 @@ import { PresupuestoService } from './shared/service/presupuesto.service';
     SharedModule,
     PresupuestoRoutingModule
   ],
-  providers: [PresupuestoService]
+  providers: [PresupuestoService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PresupuestoModule { }

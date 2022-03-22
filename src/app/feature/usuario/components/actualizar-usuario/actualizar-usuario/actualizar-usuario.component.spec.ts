@@ -9,6 +9,7 @@ import { SharedModule } from '@shared/shared.module';
 
 
 import { ActualizarUsuarioComponent } from './actualizar-usuario.component';
+import { NavbarComponent } from '@core/components/navbar/navbar.component';
 
 describe('ActualizarUsuarioComponent', () => {
   let component: ActualizarUsuarioComponent;
@@ -26,7 +27,7 @@ describe('ActualizarUsuarioComponent', () => {
         ReactiveFormsModule,
         FormsModule
       ],
-      providers: [UsuarioService, HttpService],
+      providers: [UsuarioService, HttpService, NavbarComponent],
     })
     .compileComponents();
   });

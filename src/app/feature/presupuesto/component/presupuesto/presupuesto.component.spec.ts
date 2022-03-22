@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { PresupuestoComponent } from './presupuesto.component';
 
 describe('PresupuestoComponent', () => {
@@ -8,7 +8,8 @@ describe('PresupuestoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PresupuestoComponent ]
+      declarations: [ PresupuestoComponent ],
+      providers: [NavbarComponent]
     })
     .compileComponents();
   });

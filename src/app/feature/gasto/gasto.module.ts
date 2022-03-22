@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { GastoRoutingModule } from './gasto-routing.module';
 import { ListarGastoComponent } from './components/listar-gasto/listar-gasto.component';
 import { BorrarGastoComponent } from './components/borrar-gasto/borrar-gasto.component';
@@ -21,6 +21,9 @@ import { GastoService } from './shared/service/gasto.service';
     SharedModule,
     GastoRoutingModule
   ],
-  providers: [GastoService]
+  providers: [GastoService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class GastoModule { }
+
+

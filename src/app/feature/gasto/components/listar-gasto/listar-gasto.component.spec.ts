@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { HttpService } from '@core/services/http.service';
 import { Gasto } from '@gasto/shared/model/gasto';
 import { GastoService } from '@gasto/shared/service/gasto.service';
@@ -28,7 +29,8 @@ describe('ListarGastoComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ],
-      providers: [PresupuestoService, HttpService]
+      providers: [PresupuestoService, HttpService, NavbarComponent]
+
     })
     .compileComponents();
   });

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { UsuarioRoutingModule } from './usuario-routing.module';
 import { BorrarUsuarioComponent } from './components/borrar-usuario/borrar-usuario.component';
 import { ListarUsuarioComponent } from './components/listar-usuario/listar-usuario.component';
@@ -21,6 +21,7 @@ import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actu
     UsuarioRoutingModule,
     SharedModule
   ],
-  providers: [UsuarioService]
+  providers: [UsuarioService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UsuarioModule { }

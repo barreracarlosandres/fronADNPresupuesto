@@ -8,6 +8,7 @@ import { SharedModule } from '@shared/shared.module';
 
 import { PresupuestoService } from '@presupuesto/shared/service/presupuesto.service';
 import { CrearPresupuestoComponent } from './crear-presupuesto.component';
+import { NavbarComponent } from '@core/components/navbar/navbar.component';
 
 describe('CrearPresupuestoComponent', () => {
   let component: CrearPresupuestoComponent;
@@ -24,7 +25,7 @@ describe('CrearPresupuestoComponent', () => {
       ReactiveFormsModule,
       FormsModule
     ],
-    providers: [PresupuestoService, HttpService],
+    providers: [PresupuestoService, HttpService, NavbarComponent],
     })
     .compileComponents();
   });

@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { SharedModule } from '@shared/shared.module';
 import { GastoComponent } from './gasto.component';
 
@@ -15,7 +16,8 @@ describe('GastoComponent', () => {
         SharedModule,
         HttpClientModule,
         RouterTestingModule
-      ],    
+      ],  
+      providers: [NavbarComponent]  
     })
     .compileComponents();
   });

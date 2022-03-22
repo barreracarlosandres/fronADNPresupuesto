@@ -9,6 +9,7 @@ import { PresupuestoModule } from '@presupuesto/presupuesto.module';
 import { GastoModule } from '@gasto/gasto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,11 @@ import { CookieService } from 'ngx-cookie-service';
     PresupuestoModule,
     UsuarioModule,
     GastoModule,
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA], 
 })
 export class AppModule { }

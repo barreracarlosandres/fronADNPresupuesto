@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { HttpService } from '@core/services/http.service';
 import { PresupuestoService } from '@presupuesto/shared/service/presupuesto.service';
 import { SharedModule } from '@shared/shared.module';
@@ -20,7 +21,7 @@ describe('BorrarPresupuestoComponent', () => {
         HttpClientModule,
         RouterTestingModule        
       ],
-      providers: [PresupuestoService, HttpService]
+      providers: [PresupuestoService, HttpService, NavbarComponent]
     })
     .compileComponents();
   });

@@ -2,11 +2,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { HttpService } from '@core/services/http.service';
 import { GastoService } from '@gasto/shared/service/gasto.service';
 import { SharedModule } from '@shared/shared.module';
 import { of } from 'rxjs';
 import { ActualizarGastoComponent } from './actualizar-gasto.component';
+
 
 describe('ActualizarGastoComponent', () => {
   let component: ActualizarGastoComponent;
@@ -23,7 +25,7 @@ describe('ActualizarGastoComponent', () => {
         ReactiveFormsModule,
         FormsModule
       ],
-      providers: [GastoService, HttpService],
+      providers: [GastoService, HttpService, NavbarComponent],
     })
     .compileComponents();
   });

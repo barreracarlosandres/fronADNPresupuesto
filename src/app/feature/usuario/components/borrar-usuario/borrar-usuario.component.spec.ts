@@ -6,6 +6,7 @@ import { UsuarioService } from '@usuario/shared/service/usuario.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { of } from 'rxjs';
 import { SharedModule } from '@shared/shared.module';
+import { NavbarComponent } from '@core/components/navbar/navbar.component';
 
 
 describe('BorrarUsuarioComponent', () => {
@@ -21,7 +22,7 @@ describe('BorrarUsuarioComponent', () => {
         HttpClientModule,
         RouterTestingModule        
       ],
-      providers: [UsuarioService, HttpService]
+      providers: [UsuarioService, HttpService, NavbarComponent]
     })
     .compileComponents();
   }));

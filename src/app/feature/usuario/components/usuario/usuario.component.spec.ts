@@ -3,6 +3,7 @@ import { UsuarioComponent } from './usuario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '@shared/shared.module';
+import { NavbarComponent } from '@core/components/navbar/navbar.component';
 
 describe('UsuarioComponent', () => {
   let component: UsuarioComponent;
@@ -16,6 +17,7 @@ describe('UsuarioComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ],
+      providers: [NavbarComponent],
     })
     .compileComponents();
   }));

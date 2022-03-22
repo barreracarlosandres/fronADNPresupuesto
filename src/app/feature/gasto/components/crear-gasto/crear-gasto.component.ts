@@ -24,7 +24,7 @@ export class CrearGastoComponent implements OnInit {
   crear() {    
     let obs = this.gastoServices.guardar(this.gastoForm.value);
     obs.subscribe(
-      _res=>this.router.navigate(['./gastos'])
+      _res=>this.router.navigate(['./gasto'])
       .then(() => {window.location.reload();})
       );
   }

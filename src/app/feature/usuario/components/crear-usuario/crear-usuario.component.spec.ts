@@ -7,6 +7,7 @@ import { UsuarioService } from '../../shared/service/usuario.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
+import { NavbarComponent } from '@core/components/navbar/navbar.component';
 
 describe('CrearProductoComponent', () => {
   let component: CrearUsuarioComponent;
@@ -23,7 +24,7 @@ describe('CrearProductoComponent', () => {
         ReactiveFormsModule,
         FormsModule
       ],
-      providers: [UsuarioService, HttpService],
+      providers: [UsuarioService, HttpService, NavbarComponent],
     })
     .compileComponents();
   }));
