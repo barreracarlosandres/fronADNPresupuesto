@@ -36,6 +36,12 @@
       "@usuario/*": [
         "src/app/feature/usuario/*"
       ],
+      "@presupuesto/*": [
+        "src/app/feature/presupuesto/*"
+      ],
+      "@gasto/*": [
+        "src/app/feature/gasto/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]
