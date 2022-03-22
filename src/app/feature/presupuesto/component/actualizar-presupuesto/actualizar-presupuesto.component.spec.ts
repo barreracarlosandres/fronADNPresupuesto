@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { HttpService } from '@core/services/http.service';
+import { Presupuesto } from '@presupuesto/shared/model/presupuesto';
 import { PresupuestoService } from '@presupuesto/shared/service/presupuesto.service';
 import { SharedModule } from '@shared/shared.module';
 import { of } from 'rxjs';
@@ -52,7 +53,17 @@ describe('ActualizarPresupuestoComponent', () => {
     component.actualizarForm.controls.fechaPresupuesto.setValue('2022-01-01 10:00:00');    
     expect(component.actualizarForm.valid).toBeTruthy();
     expect(component.actualizar()).toBe();
-    fixture.detectChanges();
-    
+    fixture.detectChanges();    
   });
+
+  it('debería ocultar componente', () => {
+      component.ocultar();
+  });
+
+  it('debería actualizar los datos de del presupuesto', () => {
+    const dummyPresupuesto = new Presupuesto(1, '94123', 500, '2022-01-01 10:00:00');
+    component.datosActualizar(dummyPresupuesto);
 });
+
+});
+

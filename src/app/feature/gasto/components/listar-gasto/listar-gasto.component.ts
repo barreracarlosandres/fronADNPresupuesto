@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ListarGastoComponent implements OnInit {
 
-  public listarGastos: Observable<Gasto[]>
+  public listarGastos: Observable<Gasto[]>;
 
   constructor(protected gastoServive: GastoService) { }
 

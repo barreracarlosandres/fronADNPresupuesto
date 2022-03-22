@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ListarPresupuestoComponent implements OnInit {
 
-  public listarPresupuestos: Observable<Presupuesto[]>
+  public listarPresupuestos: Observable<Presupuesto[]>;
 
   constructor(protected presupuestoServive: PresupuestoService) { }
 

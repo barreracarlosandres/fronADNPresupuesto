@@ -44,4 +44,5 @@ describe('BorrarGastoComponent', () => {
     const dummyGasto = new Gasto(1, '94123', 100, '2022-01-01 10:00:00');
     component.borrar(dummyGasto);    
   });
+  
 });
