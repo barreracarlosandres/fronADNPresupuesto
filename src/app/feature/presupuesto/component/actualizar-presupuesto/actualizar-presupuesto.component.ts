@@ -49,7 +49,6 @@ export class ActualizarPresupuestoComponent implements OnInit {
       );
       
     this.mostrar=false;
-
   }
 
   private construirFormularioPresupuesto() {

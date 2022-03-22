@@ -1,0 +1,43 @@
+  
+  <h2>Crear gasto</h2>   
+  <form [formGroup]="gastoForm" (ngSubmit)="crear()">    
+    <div class="row">
+      <div class="col-sm-2">
+        <label>identificación:</label>
+      </div>
+      <div class="col-sm-4">
+        <input  hidden type="number" id="id" name="id" placeholder="" class="form-control"
+          formControlName="id">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label>identificación:</label>
+      </div>
+      <div class="col-sm-4">
+        <input validar type="text" id="identificacionUsuario" name="identificacionUsuario" placeholder="identificacion usuario" class="form-control"
+          formControlName="identificacionUsuario">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label>Valor Gasto:</label>
+      </div>
+      <div class="col-sm-4">
+        <input validar type="text" id="valorGasto" name="valorGasto" placeholder="entero menos de 7 dígitos" class="form-control"
+          formControlName="valorGasto">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label>Fecha Gasto:</label>
+      </div>
+      <div class="col-sm-4">
+        <input validar type="text" id="fechaGasto" name="fechaGasto" placeholder="fecha en formato yyy-MM-dd HH:mi:ss"
+          class="form-control" formControlName="fechaGasto">
+      </div>
+    </div>  
+    <div><button class="btn btn-primary" type="submit" >Crear gasto</button>        
+    </div>
+  </form>     
+  

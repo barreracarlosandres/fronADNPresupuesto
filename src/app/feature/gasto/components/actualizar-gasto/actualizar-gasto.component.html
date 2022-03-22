@@ -1,0 +1,44 @@
+<div *ngIf="mostrar"> 
+    <h2>Actualizar gasto</h2>   
+    <form [formGroup]="actualizarForm" (ngSubmit)="actualizar()">
+      <div class="row">
+        <div class="col-sm-2">
+          <label>id:</label>
+        </div>
+      <div class="col-sm-4">
+        <input readonly type="number" id="id" name="id" placeholder="id gasto" class="form-control"
+            formControlName="id">
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>identificación:</label>
+        </div>
+        <div class="col-sm-4">
+          <input readonly type="text" id="identificacionUsuario" name="identificacionUsuario" placeholder="identificacion usuario" class="form-control"
+            formControlName="identificacionUsuario">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Valor Gasto:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="number" id="valorGasto" name="valorGasto" placeholder="valor gasto" class="form-control"
+            formControlName="valorGasto">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Fecha Gasto:</label>
+        </div>
+        <div class="col-sm-4">
+          <input readonly type="text" id="fechaGasto" name="fechaGasto" placeholder="fecha gasto"
+            class="form-control" formControlName="fechaGasto">
+        </div>
+      </div>  
+      <div><button class="btn btn-primary" type="submit" >Actualizar</button>
+        <button class="btn btn-primary" (click)="ocultar()">Cancelar</button></div>
+    </form>
+    </div>
+    

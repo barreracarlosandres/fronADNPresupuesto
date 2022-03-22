@@ -1,0 +1,30 @@
+<app-borrar-gasto #borrarGasto></app-borrar-gasto>
+<app-actualizar-gasto #actualizarGasto></app-actualizar-gasto>
+<div id="gasto">
+  <h2>
+    <p id="mydesc">Listado de Gastos</p>
+  </h2>  
+  <table class="table table-bordered table-striped table-hover">
+    <caption>Listado actualizado de gastos</caption>
+    <thead class="thead-dark table-bordered table-sm">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Identifiación</th>
+        <th scope="col">Varlos Gasto</th>
+        <th scope="col">Fecha Gasto</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>      
+    </thead>
+    <tbody>      
+          <tr *ngFor="let item of listarGastos | async">
+            <td>{{item.id}}</td>
+            <td>{{item.identificacionUsuario}}</td>
+            <td>{{item.valorGasto}}</td>
+            <td>{{item.fechaGasto}}</td>
+            <td> <button class="btn btn-primary" (click)="actualizarGasto.datosActualizar(item)">Actualizar</button></td>
+            <td> <button class="btn btn-danger" (click)="borrarGasto.borrar(item)">Elimiar</button> </td>
+          </tr>                      
+    </tbody>
+  </table>
+</div>

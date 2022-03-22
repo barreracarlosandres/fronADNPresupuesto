@@ -11,7 +11,8 @@ export class BorrarPresupuestoComponent implements OnInit {
 
   mostrar:boolean;
 
-  constructor(protected presupuestoService: PresupuestoService
+  constructor(
+      protected presupuestoService: PresupuestoService
     , private router:Router) { }
 
   ngOnInit(): void {

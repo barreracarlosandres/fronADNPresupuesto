@@ -20,8 +20,7 @@ export class CrearPresupuestoComponent implements OnInit {
     this.construirFormularioPresupuesto(); 
   }
 
-  crear() {
-    
+  crear() {    
     let obs = this.presupuestoServices.guardar(this.presupuestoForm.value);
     obs.subscribe(
       _res=>this.router.navigate(['./presupuesto'])
