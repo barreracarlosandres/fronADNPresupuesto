@@ -40,7 +40,7 @@ export class ActualizarGastoComponent implements OnInit {
     this.datosGasto.fechaGasto = this.actualizarForm.value.fechaGasto;
     let obs = this.gastoService.actualizar(this.datosGasto);   
     obs.subscribe(
-      _res=>this.router.navigate(['./gastos'])
+      _res=>this.router.navigate(['./gasto'])
       ,
       error => {console.log(error.error.mensaje);
         this.mostrar = false;

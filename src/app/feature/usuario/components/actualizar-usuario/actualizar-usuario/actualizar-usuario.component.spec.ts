@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { UsuarioService } from '@usuario/shared/service/usuario.service';
 import { of } from 'rxjs';
+import { SharedModule } from '@shared/shared.module';
 
 
 import { ActualizarUsuarioComponent } from './actualizar-usuario.component';
@@ -20,7 +20,7 @@ describe('ActualizarUsuarioComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ActualizarUsuarioComponent ],
       imports: [
-        CommonModule,
+        SharedModule,
         HttpClientModule,
         RouterTestingModule,
         ReactiveFormsModule,

@@ -1,11 +1,11 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BorrarUsuarioComponent } from './borrar-usuario.component';
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuarioService } from '@usuario/shared/service/usuario.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { of } from 'rxjs';
+import { SharedModule } from '@shared/shared.module';
 
 
 describe('BorrarUsuarioComponent', () => {
@@ -17,7 +17,7 @@ describe('BorrarUsuarioComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ BorrarUsuarioComponent ],
       imports: [
-        CommonModule,
+        SharedModule,
         HttpClientModule,
         RouterTestingModule        
       ],

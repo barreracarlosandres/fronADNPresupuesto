@@ -1,13 +1,12 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-
 import { CrearUsuarioComponent } from './crear-usuario.component';
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UsuarioService } from '../../shared/service/usuario.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
 
 describe('CrearProductoComponent', () => {
   let component: CrearUsuarioComponent;
@@ -18,7 +17,7 @@ describe('CrearProductoComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ CrearUsuarioComponent ],
       imports: [
-        CommonModule,
+        SharedModule,
         HttpClientModule,
         RouterTestingModule,
         ReactiveFormsModule,
@@ -54,12 +53,6 @@ describe('CrearProductoComponent', () => {
     component.usuarioForm.controls.identificacionUsuario.setValue('94303');
     expect(component.usuarioForm.valid).toBeTruthy();
     expect(component.crear()).toBe();
-    fixture.detectChanges();   
-
-    //component.crear();
-    //expect( spyOn(usuarioService, 'guardar').and.callThrough()).toBeTruthy;
-
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
-  });
+    fixture.detectChanges();
+    });
 });

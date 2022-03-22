@@ -1,9 +1,8 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UsuarioComponent } from './usuario.component';
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from '@shared/shared.module';
 
 describe('UsuarioComponent', () => {
   let component: UsuarioComponent;
@@ -13,7 +12,7 @@ describe('UsuarioComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ UsuarioComponent ],
       imports: [
-        CommonModule,
+        SharedModule,
         HttpClientModule,
         RouterTestingModule
       ],
@@ -30,4 +29,5 @@ describe('UsuarioComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
