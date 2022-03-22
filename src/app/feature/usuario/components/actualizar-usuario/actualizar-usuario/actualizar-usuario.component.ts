@@ -15,7 +15,7 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 export class ActualizarUsuarioComponent implements OnInit {
 
   mostrarActualizar:boolean;
-  datosUsuario: Usuario = new Usuario('','','', '');
+  datosUsuario: Usuario = new Usuario('','','','');
   actualizarForm: FormGroup;
 
   constructor(

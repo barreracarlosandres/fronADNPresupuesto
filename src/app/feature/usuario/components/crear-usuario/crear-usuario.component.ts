@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../../shared/service/usuario.service';
+import { UsuarioService } from '@usuario/shared/service/usuario.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
@@ -18,14 +19,11 @@ export class CrearUsuarioComponent implements OnInit {
   constructor(
       protected usuarioServices: UsuarioService
     , private router:Router
-    ) { 
-      
+    ) {       
 }
 
 ngOnInit() {
-
-     this.construirFormularioUsuario();    
-
+     this.construirFormularioUsuario();   
   }
 
   crear() {
@@ -33,8 +31,7 @@ ngOnInit() {
     obs.subscribe(
       _res=>this.router.navigate(['./usuario'])
       .then(() => {window.location.reload();})
-      );
-      
+      );      
   }
   
   private construirFormularioUsuario() {
