@@ -38,11 +38,12 @@ export class ActualizarGastoComponent implements OnInit {
     this.datosGasto.identificacionUsuario = this.actualizarForm.value.identificacionUsuario;
     this.datosGasto.valorGasto = this.actualizarForm.value.valorGasto;
     this.datosGasto.fechaGasto = this.actualizarForm.value.fechaGasto;
-    let obs = this.gastoService.actualizar(this.datosGasto);   
-    obs.subscribe(
-      _res=>this.router.navigate(['./gasto']));
+    this.gastoService.actualizar(this.datosGasto).subscribe();   
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['gasto']);
+    });
     this.mostrar=false;
-    }
+  }
     
 
   private construirFormularioGasto() {

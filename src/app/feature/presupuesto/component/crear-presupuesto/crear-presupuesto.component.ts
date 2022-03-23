@@ -12,7 +12,7 @@ import { Presupuesto } from '@presupuesto/shared/model/presupuesto';
 })
 export class CrearPresupuestoComponent implements OnInit {
 
-  datosPresupuesto: Presupuesto = new Presupuesto(0,'',0,'');
+  datosPresupuesto: Presupuesto = new Presupuesto(null,'',null,'');
   presupuestoForm: FormGroup;
 
   constructor(
@@ -23,19 +23,15 @@ export class CrearPresupuestoComponent implements OnInit {
     this.construirFormularioPresupuesto(); 
   }
 
-  crear() {    
-    let obs = this.presupuestoServices.guardar(this.presupuestoForm.value);
-    obs.subscribe(
-      _res=>this.router.navigate(['./presupuesto'])
-      .then(() => {window.location.reload();})
-      );
+  crear() {         
+    this.presupuestoServices.guardar(this.presupuestoForm.value).subscribe();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['presupuesto']);
+    });
   }
 
   private construirFormularioPresupuesto() {
-    this.presupuestoForm = new FormGroup({
-      id: new FormControl(
-                this.datosPresupuesto.id
-                , [Validators.required]),
+    this.presupuestoForm = new FormGroup({      
       identificacionUsuario: new FormControl(
                 this.datosPresupuesto.identificacionUsuario
                 , [Validators.required]),

@@ -9,6 +9,8 @@ import { SharedModule } from '@shared/shared.module';
 import { PresupuestoService } from '@presupuesto/shared/service/presupuesto.service';
 import { CrearPresupuestoComponent } from './crear-presupuesto.component';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { PresupuestoComponent } from '../presupuesto/presupuesto.component';
 
 describe('CrearPresupuestoComponent', () => {
   let component: CrearPresupuestoComponent;
@@ -23,9 +25,13 @@ describe('CrearPresupuestoComponent', () => {
       HttpClientModule,
       RouterTestingModule,
       ReactiveFormsModule,
-      FormsModule
+      FormsModule,
+      RouterTestingModule.withRoutes(
+        [{path: '', component: CrearPresupuestoComponent}, {path: 'presupuesto', component: PresupuestoComponent}]
+      )
     ],
     providers: [PresupuestoService, HttpService, NavbarComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });
@@ -49,20 +55,13 @@ describe('CrearPresupuestoComponent', () => {
   });
 
   it('Registrando presupuesto', () => {
-    expect(component.presupuestoForm.valid).toBeFalsy();
-    component.presupuestoForm.controls.id.setValue(1);
+    expect(component.presupuestoForm.valid).toBeFalsy();    
     component.presupuestoForm.controls.identificacionUsuario.setValue('94303');
     component.presupuestoForm.controls.valorPresupuesto.setValue(5000);
     component.presupuestoForm.controls.fechaPresupuesto.setValue('2022-01-01 10:00:00');    
     expect(component.presupuestoForm.valid).toBeTruthy();
     expect(component.crear()).toBe();
-    fixture.detectChanges();   
-
-    //component.crear();
-    //expect( spyOn(usuarioService, 'guardar').and.callThrough()).toBeTruthy;
-
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
+    fixture.detectChanges();     
   });
 
 });

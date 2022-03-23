@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { PresupuestoComponent } from './presupuesto.component';
@@ -9,7 +10,8 @@ describe('PresupuestoComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PresupuestoComponent ],
-      providers: [NavbarComponent]
+      providers: [NavbarComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

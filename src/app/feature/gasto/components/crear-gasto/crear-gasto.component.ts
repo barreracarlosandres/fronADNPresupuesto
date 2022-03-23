@@ -22,11 +22,10 @@ export class CrearGastoComponent implements OnInit {
   }
 
   crear() {    
-    let obs = this.gastoServices.guardar(this.gastoForm.value);
-    obs.subscribe(
-      _res=>this.router.navigate(['./gasto'])
-      .then(() => {window.location.reload();})
-      );
+    this.gastoServices.guardar(this.gastoForm.value).subscribe();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['gasto']);
+    });
   }
 
   private construirFormularioGasto() {

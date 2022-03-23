@@ -1,4 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
@@ -7,6 +8,7 @@ import { Presupuesto } from '@presupuesto/shared/model/presupuesto';
 import { PresupuestoService } from '@presupuesto/shared/service/presupuesto.service';
 import { SharedModule } from '@shared/shared.module';
 import { of } from 'rxjs';
+import { PresupuestoComponent } from '../presupuesto/presupuesto.component';
 import { BorrarPresupuestoComponent } from './borrar-presupuesto.component';
 
 describe('BorrarPresupuestoComponent', () => {
@@ -20,9 +22,13 @@ describe('BorrarPresupuestoComponent', () => {
       imports: [
         SharedModule,
         HttpClientModule,
-        RouterTestingModule        
+        RouterTestingModule,
+        RouterTestingModule.withRoutes(
+          [{path: '', component: BorrarPresupuestoComponent}, {path: 'presupuesto', component: PresupuestoComponent}]
+        )        
       ],
-      providers: [PresupuestoService, HttpService, NavbarComponent]
+      providers: [PresupuestoService, HttpService, NavbarComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });
@@ -41,7 +47,8 @@ describe('BorrarPresupuestoComponent', () => {
 
   it('debería borrar un presupuesto', () => {
     const dummyPresupuesto = new Presupuesto(1, '94123', 100, '2022-01-01 10:00:00');
-    component.borrar(dummyPresupuesto);    
+    component.borrar(dummyPresupuesto); 
+    expect(component.borrar(dummyPresupuesto)).toBe();   
   });
 
 });

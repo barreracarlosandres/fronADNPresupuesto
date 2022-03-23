@@ -7,6 +7,8 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { of } from 'rxjs';
 import { SharedModule } from '@shared/shared.module';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
+import { UsuarioComponent } from '../usuario/usuario.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 describe('BorrarUsuarioComponent', () => {
@@ -20,9 +22,13 @@ describe('BorrarUsuarioComponent', () => {
       imports: [
         SharedModule,
         HttpClientModule,
-        RouterTestingModule        
+        RouterTestingModule,
+        RouterTestingModule.withRoutes(
+          [{path: '', component: BorrarUsuarioComponent}, {path: 'usuario', component: UsuarioComponent}]
+        )     
       ],
-      providers: [UsuarioService, HttpService, NavbarComponent]
+      providers: [UsuarioService, HttpService, NavbarComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

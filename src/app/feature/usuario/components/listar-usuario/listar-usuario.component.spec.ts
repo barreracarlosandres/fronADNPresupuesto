@@ -9,6 +9,7 @@ import { UsuarioService } from "@usuario/shared/service/usuario.service";
 import { of } from "rxjs";
 import { ListarUsuarioComponent } from "./listar-usuario.component";
 import { MatButtonModule } from '@angular/material/button';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe('ListarUsuarioComponent', () => {
   let component: ListarUsuarioComponent;
@@ -29,7 +30,8 @@ describe('ListarUsuarioComponent', () => {
         RouterTestingModule,
         MatButtonModule
       ],
-      providers: [UsuarioService, HttpService, NavbarComponent]
+      providers: [UsuarioService, HttpService, NavbarComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   }));

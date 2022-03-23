@@ -1,4 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
@@ -17,7 +18,8 @@ describe('GastoComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ],  
-      providers: [NavbarComponent]  
+      providers: [NavbarComponent] ,
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

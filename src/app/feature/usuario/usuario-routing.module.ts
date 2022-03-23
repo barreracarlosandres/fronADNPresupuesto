@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CrearUsuarioComponent } from './components/crear-usuario/crear-usuario.component';
 import { ListarUsuarioComponent } from './components/listar-usuario/listar-usuario.component';
 import { BorrarUsuarioComponent } from './components/borrar-usuario/borrar-usuario.component';
 import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario/actualizar-usuario.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { CrearUsuarioComponent } from './components/crear-usuario/crear-usuario.component';
 
 
 const routes: Routes = [

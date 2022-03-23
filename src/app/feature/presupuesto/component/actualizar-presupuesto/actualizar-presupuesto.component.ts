@@ -39,10 +39,12 @@ export class ActualizarPresupuestoComponent implements OnInit {
     this.datosPresupuesto.identificacionUsuario = this.actualizarForm.value.identificacionUsuario;
     this.datosPresupuesto.valorPresupuesto = this.actualizarForm.value.valorPresupuesto;
     this.datosPresupuesto.fechaPresupuesto = this.actualizarForm.value.fechaPresupuesto;
-    let obs = this.presupuestoService.actualizar(this.datosPresupuesto);   
-    obs.subscribe(
-      _res=>this.router.navigate(['./presupuesto'])      
-      );
+    this.presupuestoService.actualizar(this.datosPresupuesto).subscribe();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['presupuesto']);
+    });
+    
+    
       
     this.mostrar=false;
   }

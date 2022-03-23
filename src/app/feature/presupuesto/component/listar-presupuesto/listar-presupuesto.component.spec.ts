@@ -1,4 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
@@ -7,6 +8,7 @@ import { Presupuesto } from '@presupuesto/shared/model/presupuesto';
 import { PresupuestoService } from '@presupuesto/shared/service/presupuesto.service';
 import { SharedModule } from '@shared/shared.module';
 import { of } from 'rxjs';
+import { PresupuestoComponent } from '../presupuesto/presupuesto.component';
 
 import { ListarPresupuestoComponent } from './listar-presupuesto.component';
 
@@ -26,9 +28,13 @@ describe('ListarPresupuestoComponent', () => {
       imports: [
         SharedModule,
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
+        RouterTestingModule.withRoutes(
+          [{path: '', component: ListarPresupuestoComponent}, {path: 'presupuesto', component: PresupuestoComponent}]
+        )
       ],
-      providers: [PresupuestoService, HttpService, NavbarComponent]
+      providers: [PresupuestoService, HttpService, NavbarComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

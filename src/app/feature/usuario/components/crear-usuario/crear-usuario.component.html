@@ -1,3 +1,4 @@
+<div>
 <h2>Crear nuevo usuario</h2>
 <form [formGroup]="usuarioForm" (ngSubmit)="crear()">
   <div *ngIf="mensajeError" class="alert alert-danger" role="alert">
@@ -29,6 +30,10 @@
       <input validar type="text" id="apellidoUsuario" name="apellidoUsurio" placeholder="apellido usuario"
         class="form-control" formControlName="apellido">
     </div>
-    <div><button class="btn btn-primary btn-sm" type="submit" >Guardar</button></div>
+    <div>
+      <button type="button" name="botton" class="btn btn-primary btn-sm" type="submit" >Guardar</button>
+      <button type="button" name="botton" class="btn btn-primary btn-sm" [routerLink]="['/usuario']">Cancelar</button>
+    </div>
   </div>  
 </form>
+</div>

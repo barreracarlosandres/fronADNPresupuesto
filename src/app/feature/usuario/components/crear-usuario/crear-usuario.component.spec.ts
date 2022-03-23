@@ -7,7 +7,8 @@ import { UsuarioService } from '../../shared/service/usuario.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
-import { NavbarComponent } from '@core/components/navbar/navbar.component';
+import { UsuarioComponent } from '../usuario/usuario.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('CrearProductoComponent', () => {
   let component: CrearUsuarioComponent;
@@ -22,9 +23,13 @@ describe('CrearProductoComponent', () => {
         HttpClientModule,
         RouterTestingModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        RouterTestingModule.withRoutes(
+          [{path: '', component: CrearUsuarioComponent}, {path: 'usuario', component: UsuarioComponent}]
+        )
       ],
-      providers: [UsuarioService, HttpService, NavbarComponent],
+      providers: [UsuarioService, HttpService],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

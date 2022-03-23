@@ -1,4 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -8,6 +9,7 @@ import { Presupuesto } from '@presupuesto/shared/model/presupuesto';
 import { PresupuestoService } from '@presupuesto/shared/service/presupuesto.service';
 import { SharedModule } from '@shared/shared.module';
 import { of } from 'rxjs';
+import { PresupuestoComponent } from '../presupuesto/presupuesto.component';
 
 import { ActualizarPresupuestoComponent } from './actualizar-presupuesto.component';
 
@@ -24,9 +26,13 @@ describe('ActualizarPresupuestoComponent', () => {
         HttpClientModule,
         RouterTestingModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        RouterTestingModule.withRoutes(
+          [{path: '', component: ActualizarPresupuestoComponent}, {path: 'presupuesto', component: PresupuestoComponent}]
+        )
       ],
       providers: [PresupuestoService, HttpService, NavbarComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });
@@ -58,11 +64,13 @@ describe('ActualizarPresupuestoComponent', () => {
 
   it('debería ocultar componente', () => {
       component.ocultar();
+      expect(component.ocultar()).toBe();
   });
 
   it('debería actualizar los datos de del presupuesto', () => {
     const dummyPresupuesto = new Presupuesto(1, '94123', 500, '2022-01-01 10:00:00');
     component.datosActualizar(dummyPresupuesto);
+    expect(component.datosActualizar(dummyPresupuesto)).toBe();
 });
 
 });

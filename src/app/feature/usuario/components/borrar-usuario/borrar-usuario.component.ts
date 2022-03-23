@@ -19,10 +19,9 @@ export class BorrarUsuarioComponent implements OnInit {
   }
 
   borrar(usuario:Usuario):void {
-    this.usuarioService.eliminar(usuario).subscribe(
-      _res=>this.router.navigate(['./usuario'])
-      .then(() => {window.location.reload();})      
-    );  
-    
+    this.usuarioService.eliminar(usuario).subscribe();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['usuario']);
+    });
   }
 }

@@ -10,6 +10,8 @@ import { SharedModule } from '@shared/shared.module';
 
 import { ActualizarUsuarioComponent } from './actualizar-usuario.component';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
+import { UsuarioComponent } from '@usuario/components/usuario/usuario.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ActualizarUsuarioComponent', () => {
   let component: ActualizarUsuarioComponent;
@@ -25,9 +27,13 @@ describe('ActualizarUsuarioComponent', () => {
         HttpClientModule,
         RouterTestingModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        RouterTestingModule.withRoutes(
+          [{path: '', component: ActualizarUsuarioComponent}, {path: 'usuario', component: UsuarioComponent}]
+        )
       ],
       providers: [UsuarioService, HttpService, NavbarComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   });

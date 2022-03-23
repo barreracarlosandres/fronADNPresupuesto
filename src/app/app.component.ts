@@ -15,6 +15,4 @@ export class AppComponent {
     { url: '/presupuesto', nombre: 'presupuesto' },
     { url: '/gasto', nombre: 'gasto' }    
   ];
-
-  
 }

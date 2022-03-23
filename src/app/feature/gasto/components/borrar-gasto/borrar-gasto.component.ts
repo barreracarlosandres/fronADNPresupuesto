@@ -21,10 +21,10 @@ export class BorrarGastoComponent implements OnInit {
   }
 
   borrar(gasto:Gasto):void {
-    this.gastoService.eliminar(gasto).subscribe(
-      _res=>this.router.navigate(['./gasto'])
-      .then(() => {window.location.reload();})      
-    );
+    this.gastoService.eliminar(gasto).subscribe();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['gasto']);
+    });
   }
 
 }

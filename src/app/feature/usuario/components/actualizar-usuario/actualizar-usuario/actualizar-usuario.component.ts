@@ -40,14 +40,11 @@ export class ActualizarUsuarioComponent implements OnInit {
   actualizar(): void{
     this.datosUsuario.nombre = this.actualizarForm.value.nombre;
     this.datosUsuario.apellido = this.actualizarForm.value.apellido;
-    let obs = this.usuarioServices.actualizar(this.datosUsuario);   
-    obs.subscribe(
-      _res=>this.router.navigate(['./usuario'])
-      .then(() => {window.location.reload();})
-      );
-
+    this.usuarioServices.actualizar(this.datosUsuario).subscribe();   
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['usuario']);
+    });
     this.mostrarActualizar=false;
-
   }
 
   private construirFormularioUsuario() {

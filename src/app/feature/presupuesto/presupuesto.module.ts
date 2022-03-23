@@ -6,7 +6,7 @@ import { PresupuestoComponent } from './component/presupuesto/presupuesto.compon
 import { SharedModule } from '@shared/shared.module';
 import { ActualizarPresupuestoComponent } from './component/actualizar-presupuesto/actualizar-presupuesto.component';
 import { PresupuestoService } from './shared/service/presupuesto.service';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 
 @NgModule({
@@ -21,7 +21,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
     SharedModule,
     PresupuestoRoutingModule
   ],
-  providers: [PresupuestoService],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  providers: [PresupuestoService]
 })
 export class PresupuestoModule { }

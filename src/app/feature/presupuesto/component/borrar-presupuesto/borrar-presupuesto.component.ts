@@ -13,17 +13,17 @@ export class BorrarPresupuestoComponent implements OnInit {
 
   constructor(
       protected presupuestoService: PresupuestoService
-    , private router:Router) { }
+      , private router:Router) { }
 
   ngOnInit(): void {
     this.mostrar=false;
   }
 
   borrar(presupuesto:Presupuesto):void {
-    this.presupuestoService.eliminar(presupuesto).subscribe(
-      _res=>this.router.navigate(['./presupuesto'])
-      .then(() => {window.location.reload();})      
-    );
+    this.presupuestoService.eliminar(presupuesto).subscribe();   
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['presupuesto']);
+    });
   }
 
 }
