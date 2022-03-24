@@ -10,7 +10,9 @@ import { GastoService } from '@gasto/shared/service/gasto.service';
 })
 export class ActualizarGastoComponent implements OnInit {
 
-  mostrar:boolean;
+  mensajeError;
+  mostrarMensajeError:boolean;
+  mostrarHtml:boolean;
   datosGasto: Gasto = new Gasto(0,'',0,'');
   actualizarForm: FormGroup;
 
@@ -22,15 +24,14 @@ export class ActualizarGastoComponent implements OnInit {
     this.construirFormularioGasto();
   }
 
-  datosActualizar(gasto:Gasto): void{
-    
-    this.mostrar=true;
+  datosActualizar(gasto:Gasto): void{    
+    this.mostrarHtml=true;
     this.datosGasto=gasto;
     this.construirFormularioGasto();
   }
 
   ocultar():void{
-    this.mostrar=false;
+    this.mostrarHtml=false;
   }
 
   actualizar(): void{
@@ -38,11 +39,22 @@ export class ActualizarGastoComponent implements OnInit {
     this.datosGasto.identificacionUsuario = this.actualizarForm.value.identificacionUsuario;
     this.datosGasto.valorGasto = this.actualizarForm.value.valorGasto;
     this.datosGasto.fechaGasto = this.actualizarForm.value.fechaGasto;
-    this.gastoService.actualizar(this.datosGasto).subscribe();   
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-      this.router.navigate(['gasto']);
-    });
-    this.mostrar=false;
+    this.gastoService.actualizar(this.datosGasto).subscribe(
+      {   
+        next: () => 
+        {
+          this.mostrarHtml=false;
+          this.router.navigateByUrl('/', {skipLocationChange: true})
+            .then(() => { this.router.navigate(['gasto']); } );
+        },     
+        error: error => 
+        {
+            this.mostrarHtml=true;
+            this.mostrarMensajeError=true;
+            this.mensajeError = error;
+        }
+    }
+    );
   }
     
 

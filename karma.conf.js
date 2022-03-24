@@ -28,7 +28,7 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml','junit'],
+    reporters: ['progress','kjhtml','junit'],    
     htmlReporter: {
       outputFile: 'reports/unit/units.html',
 

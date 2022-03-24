@@ -8,7 +8,6 @@ import { SharedModule } from '@shared/shared.module';
 import { UsuarioService } from './shared/service/usuario.service';
 import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario/actualizar-usuario.component';
 
-
 @NgModule({
   declarations: [
     CrearUsuarioComponent,

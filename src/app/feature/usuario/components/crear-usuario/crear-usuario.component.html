@@ -1,39 +1,37 @@
-<div>
-<h2>Crear nuevo usuario</h2>
-<form [formGroup]="usuarioForm" (ngSubmit)="crear()">
-  <div *ngIf="mensajeError" class="alert alert-danger" role="alert">
-    A simple danger alert—check it out!
-  </div>
+<div class="card row" style="max-width: 500px; margin: auto;">
+<div><h2>Crear nuevo usuario</h2></div>
+<form [formGroup]="usuarioForm" (ngSubmit)="crear()">  
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-4">
       <label>identificación:</label>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-8">
       <input validar type="text" id="identificacionUsuario" name="identificacionUsuario" placeholder="nombre usuario" class="form-control"
         formControlName="identificacionUsuario">
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-4">
       <label>Nombre:</label>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-8">
       <input validar type="text" id="nombreUsuario" name="nombreUsuario" placeholder="nombre usuario" class="form-control"
         formControlName="nombre">
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-4">
       <label>Apellido:</label>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-8">
       <input validar type="text" id="apellidoUsuario" name="apellidoUsurio" placeholder="apellido usuario"
         class="form-control" formControlName="apellido">
     </div>
-    <div>
-      <button type="button" name="botton" class="btn btn-primary btn-sm" type="submit" >Guardar</button>
-      <button type="button" name="botton" class="btn btn-primary btn-sm" [routerLink]="['/usuario']">Cancelar</button>
+    <div class="center">
+      <button type="button" name="botton_g" class="btn btn-primary" type="submit" >Guardar</button>
+      <button type="button" name="botton_a" class="btn btn-primary" [routerLink]="['/usuario']">Cancelar</button>
     </div>
+    <div *ngIf="!mostrarMensajeError" class="alert alert-danger" role="alert">{{mensajeError.error.mensaje}}</div>
   </div>  
 </form>
 </div>

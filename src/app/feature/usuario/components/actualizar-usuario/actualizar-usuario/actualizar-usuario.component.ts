@@ -14,7 +14,9 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 })
 export class ActualizarUsuarioComponent implements OnInit {
 
+  mensajeError;
   mostrarActualizar:boolean;
+  mostrarMensajeError:boolean;
   datosUsuario: Usuario = new Usuario('','','','');
   actualizarForm: FormGroup;
 
@@ -34,17 +36,29 @@ export class ActualizarUsuarioComponent implements OnInit {
   }
 
   ocultar():void{
+    this.mostrarMensajeError=false;
     this.mostrarActualizar=false;
   }
 
   actualizar(): void{
     this.datosUsuario.nombre = this.actualizarForm.value.nombre;
     this.datosUsuario.apellido = this.actualizarForm.value.apellido;
-    this.usuarioServices.actualizar(this.datosUsuario).subscribe();   
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-      this.router.navigate(['usuario']);
-    });
-    this.mostrarActualizar=false;
+    this.usuarioServices.actualizar(this.datosUsuario).subscribe(
+      {
+        next: () => {
+          this.router.navigateByUrl('/', {skipLocationChange: true})
+            .then(() => { this.router.navigate(['usuario']); } );
+          this.mostrarActualizar=true;
+            
+        },
+        error: error => {
+          this.mostrarMensajeError=true;
+          this.mostrarActualizar=true;          
+            this.mensajeError = error;
+        }
+      }
+    );
+    
   }
 
   private construirFormularioUsuario() {

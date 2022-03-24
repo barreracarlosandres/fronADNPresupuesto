@@ -1,3 +1,6 @@
 <div *ngIf="mostrar">
-<p>borrar-usuario works!</p>
+    <div *ngIf="!mostrarMensajeError">
+        <h1>Falló al momento de eliminar</h1>
+        <div class="alert alert-danger" role="alert">{{mensajeError.error.mensaje}}</div>
+    </div>
 </div>

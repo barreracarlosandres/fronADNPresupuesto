@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { HttpService } from '@core/services/http.service';
+import { Gasto } from '@gasto/shared/model/gasto';
 import { GastoService } from '@gasto/shared/service/gasto.service';
 import { SharedModule } from '@shared/shared.module';
 import { of } from 'rxjs';
@@ -59,6 +60,13 @@ describe('ActualizarGastoComponent', () => {
     expect(component.actualizarForm.valid).toBeTruthy();
     expect(component.actualizar()).toBe();
     fixture.detectChanges();
-    
   });
+
+  it('debería actualizar un gasto', () => {
+    const dummyGasto = new Gasto(1, '94123', 100, '2022-01-01 10:00:00');
+    component.datosActualizar(dummyGasto);    
+    expect(component.actualizar()).toBe();
+    component.ocultar();
+  });
+
 });

@@ -1,4 +1,3 @@
-//import { browser, logging } from 'protractor';
 import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { UsuarioPage } from '../page/usuario/usuario.po';
@@ -26,9 +25,7 @@ describe('workspace-project Usuario', () => {
         usuario.clickBotonCrearUsuarios();
         usuario.ingresarNombre(NOMBRE);
         usuario.ingresarApellido(APELLIDO);
-        usuario.ingresarIdentificacion(IDENTIFICACION_USUARIO);  
-        //usuario.      
-
+        usuario.ingresarIdentificacion(IDENTIFICACION_USUARIO);
         // Adicionamos las validaciones despues de la creación
         //expect('nombre2').toEqual(NOMBRE);
     });

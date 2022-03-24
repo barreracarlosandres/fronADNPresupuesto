@@ -3,13 +3,11 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { HttpService } from '@core/services/http.service';
 import { GastoService } from '@gasto/shared/service/gasto.service';
 import { SharedModule } from '@shared/shared.module';
 import { of } from 'rxjs';
 import { GastoComponent } from '../gasto/gasto.component';
-
 import { CrearGastoComponent } from './crear-gasto.component';
 
 describe('CrearGastoComponent', () => {
@@ -30,7 +28,7 @@ describe('CrearGastoComponent', () => {
           [{path: '', component: CrearGastoComponent}, {path: 'gasto', component: GastoComponent}]
         )
       ],
-      providers: [GastoService, HttpService, NavbarComponent],
+      providers: [GastoService, HttpService],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();

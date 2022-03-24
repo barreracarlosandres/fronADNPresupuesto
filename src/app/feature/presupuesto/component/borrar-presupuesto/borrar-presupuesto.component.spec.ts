@@ -24,7 +24,8 @@ describe('BorrarPresupuestoComponent', () => {
         HttpClientModule,
         RouterTestingModule,
         RouterTestingModule.withRoutes(
-          [{path: '', component: BorrarPresupuestoComponent}, {path: 'presupuesto', component: PresupuestoComponent}]
+          [{path: '', component: BorrarPresupuestoComponent}
+          , {path: 'presupuesto', component: PresupuestoComponent}]
         )        
       ],
       providers: [PresupuestoService, HttpService, NavbarComponent],

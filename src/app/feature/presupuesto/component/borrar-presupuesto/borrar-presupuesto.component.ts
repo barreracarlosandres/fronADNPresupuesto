@@ -25,5 +25,4 @@ export class BorrarPresupuestoComponent implements OnInit {
       this.router.navigate(['presupuesto']);
     });
   }
-
 }

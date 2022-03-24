@@ -9,6 +9,8 @@ import { UsuarioService } from '@usuario/shared/service/usuario.service';
 })
 export class BorrarUsuarioComponent implements OnInit {
 
+  mensajeError;
+  mostrarMensajeError:boolean=true;
   mostrar:boolean;
 
   constructor(protected usuarioService: UsuarioService
@@ -19,9 +21,20 @@ export class BorrarUsuarioComponent implements OnInit {
   }
 
   borrar(usuario:Usuario):void {
-    this.usuarioService.eliminar(usuario).subscribe();
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-      this.router.navigate(['usuario']);
-    });
+    this.usuarioService.eliminar(usuario).subscribe(
+      {   
+        next: () => {
+          this.mostrar=false;
+          this.router.navigateByUrl('/', {skipLocationChange: true})
+            .then(() => { this.router.navigate(['usuario']); } );
+        },     
+        error: error => {
+            this.mostrar=true;
+            this.mostrarMensajeError=false;
+            this.mensajeError = error;
+            
+        }
+      }
+    );    
   }
 }

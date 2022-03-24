@@ -20,8 +20,8 @@
           <tr *ngFor="let item of listarPresupuestos | async">
             <td>{{item.id}}</td>
             <td>{{item.identificacionUsuario}}</td>
-            <td>{{item.valorPresupuesto}}</td>
-            <td>{{item.fechaPresupuesto}}</td>
+            <td>{{item.valorPresupuesto | currency: 'USD' : 'symbol' : '1.0-0'}}</td>
+            <td>{{item.fechaPresupuesto | date: 'YYYY-MMMM'}}</td>
             <td> <button class="btn btn-primary" (click)="actualizarPresupuesto.datosActualizar(item)">Actualizar</button></td>
             <td> <button class="btn btn-danger" (click)="borrarPresupuesto.borrar(item)">Elimiar</button> </td>
           </tr>                      

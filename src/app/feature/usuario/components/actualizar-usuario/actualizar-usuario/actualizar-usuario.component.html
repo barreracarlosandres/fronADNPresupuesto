@@ -38,6 +38,8 @@
     </div>
   </div>  
    <div><button class="btn btn-primary" type="submit" >Actualizar</button>
-    <button class="btn btn-primary" (click)="ocultar()">Cancelar</button></div>
+    <button class="btn btn-primary" (click)="ocultar()">Cancelar</button>
+  </div>
+  <div *ngIf="mostrarMensajeError" class="alert alert-danger" role="alert">{{mensajeError.error.mensaje}}</div>
 </form>
 </div>

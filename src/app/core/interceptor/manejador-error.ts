@@ -40,4 +40,5 @@ export class ManejadorError implements ErrorHandler {
     }
     return HTTP_ERRORES_CODIGO[httpCode];
   }
+  
 }

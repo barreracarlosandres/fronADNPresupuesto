@@ -6,10 +6,9 @@ import { UsuarioService } from '@usuario/shared/service/usuario.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { of } from 'rxjs';
 import { SharedModule } from '@shared/shared.module';
-import { NavbarComponent } from '@core/components/navbar/navbar.component';
 import { UsuarioComponent } from '../usuario/usuario.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
+import { Usuario } from '@usuario/shared/model/usuario';
 
 describe('BorrarUsuarioComponent', () => {
   let component: BorrarUsuarioComponent;
@@ -22,12 +21,12 @@ describe('BorrarUsuarioComponent', () => {
       imports: [
         SharedModule,
         HttpClientModule,
-        RouterTestingModule,
+        RouterTestingModule,        
         RouterTestingModule.withRoutes(
           [{path: '', component: BorrarUsuarioComponent}, {path: 'usuario', component: UsuarioComponent}]
         )     
       ],
-      providers: [UsuarioService, HttpService, NavbarComponent],
+      providers: [UsuarioService, HttpService],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
@@ -42,6 +41,12 @@ describe('BorrarUsuarioComponent', () => {
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('Debería borrar un usuario', () => {
+    const dummyUsuario = new Usuario('1','94123','carlos','andres');
+    component.borrar(dummyUsuario);
     expect(component).toBeTruthy();
   });
   

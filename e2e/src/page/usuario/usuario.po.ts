@@ -3,7 +3,6 @@ import { by, element } from 'protractor';
 export class UsuarioPage {
     private linkCrearUsuario = element(by.id('linkCrearUsuario'));
     private linkListarUsuario = element(by.id('linkListarUsuario'));
-    //private inputNombreUsuario = element(by.id('id'));
     private inputNombreUsuario = element(by.id('nombreUsuario'));
     private inputApellidoUsuario = element(by.id('apellidoUsuario'));
     private inputIdentificacionUsuario = element(by.id('identificacionUsuario'));
@@ -15,7 +14,7 @@ export class UsuarioPage {
 
     async clickBotonListarUsuarios() {
         await this.linkListarUsuario.click();
-    } 
+    }
 
     async ingresarNombre(nombreUsuario) {
         await this.inputNombreUsuario.sendKeys(nombreUsuario);
