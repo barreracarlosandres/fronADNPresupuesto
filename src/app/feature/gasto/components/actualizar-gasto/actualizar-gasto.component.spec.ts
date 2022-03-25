@@ -41,29 +41,26 @@ describe('ActualizarGastoComponent', () => {
     fixture = TestBed.createComponent(ActualizarGastoComponent);
     component = fixture.componentInstance;
     gastoService = TestBed.inject(GastoService);
-    spyOn(gastoService, 'actualizar').and.returnValue(
-      of(true)
-    );
-    fixture.detectChanges();
+    
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Actualizar gasto', () => {
-    expect(component.actualizarForm.valid).toBeFalsy();
-    component.actualizarForm.controls.id.setValue(1);
-    component.actualizarForm.controls.valorGasto.setValue(20);
-    component.actualizarForm.controls.fechaGasto.setValue('2022-01-01 10:00:00');
-    component.actualizarForm.controls.identificacionUsuario.setValue('94123');
-    expect(component.actualizarForm.valid).toBeTruthy();
-    expect(component.actualizar()).toBe();
+  it('debería actualizar un gasto', () => {
+    spyOn(gastoService, 'actualizar').and.returnValue(
+      of(true)
+    );
     fixture.detectChanges();
+    const dummyGasto = new Gasto(1, '94123', 100, '2022-01-01 10:00:00');
+    component.datosActualizar(dummyGasto);    
+    expect(component.actualizar()).toBe();
+    component.ocultar();
   });
 
-  it('debería actualizar un gasto', () => {
-    const dummyGasto = new Gasto(1, '94123', 100, '2022-01-01 10:00:00');
+  it('no debería actualizar un gasto', () => {
+    const dummyGasto = new Gasto(1, '94123', 99999999, '2022-01-01 10:00:00');
     component.datosActualizar(dummyGasto);    
     expect(component.actualizar()).toBe();
     component.ocultar();

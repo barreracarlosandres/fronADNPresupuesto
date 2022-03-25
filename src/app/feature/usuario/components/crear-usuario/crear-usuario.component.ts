@@ -14,7 +14,7 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 export class CrearUsuarioComponent implements OnInit {
 
   mensajeError;
-  mostrarMensajeError:boolean=true;
+  mostrarMensajeError:boolean;
   usuarioForm: FormGroup;  
   
   constructor(
@@ -24,7 +24,8 @@ export class CrearUsuarioComponent implements OnInit {
 }
 
 ngOnInit() {      
-   this.construirFormularioUsuario();   
+   this.construirFormularioUsuario();  
+   this.mostrarMensajeError=true; 
   }
 
   crear() {    

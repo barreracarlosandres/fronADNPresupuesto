@@ -10,14 +10,15 @@ import { UsuarioService } from '@usuario/shared/service/usuario.service';
 export class BorrarUsuarioComponent implements OnInit {
 
   mensajeError;
-  mostrarMensajeError:boolean=true;
+  mostrarMensajeError:boolean;
   mostrar:boolean;
 
   constructor(protected usuarioService: UsuarioService
     , private router:Router ) { }
 
   ngOnInit() {
-    this.mostrar=false;    
+    this.mostrar=false;
+    this.mostrarMensajeError=true;  
   }
 
   borrar(usuario:Usuario):void {

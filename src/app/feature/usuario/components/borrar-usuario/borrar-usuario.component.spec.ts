@@ -13,7 +13,7 @@ import { Usuario } from '@usuario/shared/model/usuario';
 describe('BorrarUsuarioComponent', () => {
   let component: BorrarUsuarioComponent;
   let fixture: ComponentFixture<BorrarUsuarioComponent>;
-  let usuarioService : UsuarioService
+  //let usuarioService : UsuarioService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -35,9 +35,9 @@ describe('BorrarUsuarioComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BorrarUsuarioComponent);
     component = fixture.componentInstance;
-    usuarioService = TestBed.inject(UsuarioService);
+    /*usuarioService = TestBed.inject(UsuarioService);
     spyOn(usuarioService, 'eliminar').and.returnValue(of(true));
-    fixture.detectChanges();
+    fixture.detectChanges();*/
   });
 
   it('should create', () => {
@@ -45,6 +45,16 @@ describe('BorrarUsuarioComponent', () => {
   });
 
   it('Debería borrar un usuario', () => {
+    const dummyUsuario = new Usuario('1','94123','carlos','andres');
+    component.borrar(dummyUsuario);
+    expect(component).toBeTruthy();
+  });
+
+  it('Debería borrar un usuario', () => {
+    let usuarioService_tmp : UsuarioService;
+    usuarioService_tmp = TestBed.inject(UsuarioService);
+    spyOn(usuarioService_tmp, 'eliminar').and.returnValue(of(true));
+    fixture.detectChanges();    
     const dummyUsuario = new Usuario('1','94123','carlos','andres');
     component.borrar(dummyUsuario);
     expect(component).toBeTruthy();

@@ -55,8 +55,7 @@ export class ActualizarGastoComponent implements OnInit {
         }
     }
     );
-  }
-    
+  }   
 
   private construirFormularioGasto() {
     this.actualizarForm = new FormGroup({

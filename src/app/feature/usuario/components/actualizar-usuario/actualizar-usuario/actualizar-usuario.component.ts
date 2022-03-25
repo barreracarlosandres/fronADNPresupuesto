@@ -46,10 +46,9 @@ export class ActualizarUsuarioComponent implements OnInit {
     this.usuarioServices.actualizar(this.datosUsuario).subscribe(
       {
         next: () => {
+          this.mostrarActualizar=false;
           this.router.navigateByUrl('/', {skipLocationChange: true})
             .then(() => { this.router.navigate(['usuario']); } );
-          this.mostrarActualizar=true;
-            
         },
         error: error => {
           this.mostrarMensajeError=true;

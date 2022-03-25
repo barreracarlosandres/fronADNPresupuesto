@@ -7,6 +7,9 @@
     "build": "ng build --prod",
     "test": "ng test --code-coverage",
     "test-headless": "ng test --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test-gasto": "ng test -- --include src/app/feature/gasto/ --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test-presupuesto": "ng test -- --include src/app/feature/presupuesto/ --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test-usuario": "ng test -- --include src/app/feature/usuario/ --code-coverage --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
