@@ -1,9 +1,10 @@
 <app-borrar-usuario #borrarUsuario></app-borrar-usuario>
 <app-actualizar-usuario #actualizarUsuario></app-actualizar-usuario>
-<div id="usuario">
+<div >
   <h2>
     <p id="mydesc">Listado de Usuarios</p>
   </h2>  
+  <div id="usuarios"> 
   <table class="table table-bordered table-striped table-hover">
     <caption>Listado actualizado de usuarios</caption>
     <thead class="thead-dark table-bordered table-sm">
@@ -16,15 +17,16 @@
         <th scope="col"></th>
       </tr>      
     </thead>
-    <tbody>      
+    <tbody class="usuarios">      
           <tr *ngFor="let item of listaUsuarios | async">
             <td>{{item.id}}</td>
             <td>{{item.identificacionUsuario}}</td>
             <td>{{item.nombre}}</td>
             <td>{{item.apellido}}</td>
-            <td> <button class="btn btn-primary" (click)="actualizarUsuario.datosActualizar(item)">Actualizar</button> </td>
-            <td> <button class="btn btn-danger" (click)="borrarUsuario.borrar(item)">Elimiar</button> </td>
+            <td><button class="btn btn-primary" (click)="actualizarUsuario.datosActualizar(item)">Actualizar</button></td>
+            <td><button class="btn btn-danger" (click)="borrarUsuario.borrar(item)">Elimiar</button></td>
           </tr>                      
     </tbody>
   </table>
+</div>
 </div>

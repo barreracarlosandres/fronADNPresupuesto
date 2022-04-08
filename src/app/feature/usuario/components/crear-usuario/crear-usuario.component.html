@@ -1,6 +1,6 @@
 <div class="card row" style="max-width: 500px; margin: auto;">
 <div><h2>Crear nuevo usuario</h2></div>
-<form [formGroup]="usuarioForm" (ngSubmit)="crear()">  
+<form id="form_crear_usuario" [formGroup]="usuarioForm" (ngSubmit)="crear()">  
   <div class="row">
     <div class="col-sm-4">
       <label>identificación:</label>
@@ -28,7 +28,7 @@
         class="form-control" formControlName="apellido">
     </div>
     <div class="center">
-      <button type="button" name="botton_g" class="btn btn-primary" type="submit" >Guardar</button>
+      <button id ="bg" type="button" name="botton_g" class="btn btn-primary" type="submit" >Guardar</button>
       <button type="button" name="botton_a" class="btn btn-primary" [routerLink]="['/usuario']">Cancelar</button>
     </div>
     <div *ngIf="!mostrarMensajeError" class="alert alert-danger" role="alert">{{mensajeError.error.mensaje}}</div>
