@@ -15,7 +15,7 @@ export class ListarPresupuestoComponent implements OnInit {
 
   constructor(protected presupuestoServive: PresupuestoService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.listarPresupuestos = this.presupuestoServive.consultar();
   }
 

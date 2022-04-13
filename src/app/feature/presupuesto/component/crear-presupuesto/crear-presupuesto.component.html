@@ -1,35 +1,38 @@
-  
-  <h2>Crear presupuesto</h2>   
-    <form [formGroup]="presupuestoForm" (ngSubmit)="crear()">
-      
+<div class="card row" style="max-width: 500px; margin: auto;">
+  <h2>Crear presupuesto</h2>
+    <form id="form_crear_presupuesto" [formGroup]="presupuestoForm" (ngSubmit)="crear()">      
       <div class="row">
-        <div class="col-sm-2">
-          <label>identificación:</label>
-        </div>
         <div class="col-sm-4">
-          <input validar type="text" id="identificacionUsuario" name="identificacionUsuario" placeholder="identificacion usuario" class="form-control"
-            formControlName="identificacionUsuario">
+          <label>identificaci&oacute;n:</label>
+        </div>
+        <div class="col-sm-8">
+          <input validar type="text" id="identificacionUsuario" name="identificacionUsuario" placeholder="identificaci&oacute;n usuario" class="form-control"
+            formControlName="identificacionUsuario" required>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-4">
           <label>Valor Presupuesto:</label>
         </div>
-        <div class="col-sm-4">
-          <input validar type="text" id="valorPresupuesto" name="valorPresupuesto" placeholder="entero menos de 7 dígitos" class="form-control"
+        <div class="col-sm-8">
+          <input validar type="text" id="valorPresupuesto" name="valorPresupuesto" placeholder="entero menor de 7 dígitos" class="form-control"
             formControlName="valorPresupuesto">
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-4">
           <label>Fecha Presupuesto:</label>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-8">
           <input validar type="text" id="fechaPresupuesto" name="fechaPresupuesto" placeholder="fecha en formato yyy-MM-dd HH:mi:ss"
-            class="form-control" formControlName="fechaPresupuesto">
+            class="form-control" formControlName="fechaPresupuesto">            
+        </div>        
+        <div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" [routerLink]="['/presupuesto']">Cancelar</button>
         </div>
-      </div>  
-      <div><button class="btn btn-primary" type="submit" >Crear presupuesto</button>        
+        <div *ngIf="!mostrarMensajeError" class="alert alert-danger" role="alert">{{mensajeError.error.mensaje}}</div>
       </div>
-    </form>     
+    </form>  
+</div>   
     

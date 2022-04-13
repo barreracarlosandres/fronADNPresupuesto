@@ -6,7 +6,8 @@ import { CrearUsuarioComponent } from './components/crear-usuario/crear-usuario.
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { SharedModule } from '@shared/shared.module';
 import { UsuarioService } from './shared/service/usuario.service';
-import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario/actualizar-usuario.component';
+import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actualizar-usuario.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ActualizarUsuarioComponent } from './components/actualizar-usuario/actu
   ],
   imports: [
     UsuarioRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [UsuarioService]
 })

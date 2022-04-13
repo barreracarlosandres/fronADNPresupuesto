@@ -6,7 +6,5 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioComponent implements OnInit {
 
-  ngOnInit() {    
-  }
-  
+  ngOnInit() { console.log(); }  
 }

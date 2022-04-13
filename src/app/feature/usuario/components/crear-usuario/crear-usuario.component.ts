@@ -29,29 +29,38 @@ ngOnInit() {
   }
 
   crear() {    
-    this.usuarioServices.guardar(this.usuarioForm.value)
-    .subscribe(
-      {   
-          next: () => {      
-            this.router.navigateByUrl('/', {skipLocationChange: true})
-              .then(() => { this.router.navigate(['usuario']); } );
-          },     
-          error: error => {
-              this.mostrarMensajeError=false;
-              this.mensajeError = error;
-          }
-      }
-    );
+    /*console.log(this.usuarioForm.value.identificacionUsuario);
+    console.log(this.usuarioForm.value.nombre.error);
+    console.log(this.usuarioForm.value.apellido);*/
+    console.log(this.usuarioForm.invalid);
+    console.log(this.usuarioForm.controls['identificacionUsuario'].errors);
+    if(this.usuarioForm.errors!=null)
+    {
+
+      this.usuarioServices.guardar(this.usuarioForm.value)
+      .subscribe(
+        {   
+            next: () => {      
+              this.router.navigateByUrl('/', {skipLocationChange: true})
+                .then(() => { this.router.navigate(['usuario']); } );
+            },     
+            error: error => {
+                this.mostrarMensajeError=false;
+                this.mensajeError = error;
+            }
+        }
+      );
+    }
   }
   
   private construirFormularioUsuario() {    
     this.usuarioForm = new FormGroup({
       identificacionUsuario: new FormControl('', [Validators.required]),
-      nombre: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
-                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
+      nombre: new FormControl('', [ Validators.required
+                                  , Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO)
+                                  , Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)]),
       apellido: new FormControl('', [Validators.required]),                                                             
     });
   }
 
 }
-

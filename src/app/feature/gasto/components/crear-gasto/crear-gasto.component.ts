@@ -12,20 +12,32 @@ export class CrearGastoComponent implements OnInit {
 
   datosGasto: Gasto = new Gasto(0,'',null,'');
   gastoForm: FormGroup;
+  mensajeError;
+  mostrarMensajeError:boolean;
 
   constructor(
     protected gastoServices: GastoService
     , private router:Router) { }
 
   ngOnInit(): void {
-    this.construirFormularioGasto(); 
+    this.construirFormularioGasto();
+    this.mostrarMensajeError=true; 
   }
 
   crear() {    
-    this.gastoServices.guardar(this.gastoForm.value).subscribe();
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-      this.router.navigate(['gasto']);
-    });
+    this.gastoServices.guardar(this.gastoForm.value)
+    .subscribe(
+      {   
+          next: () => {      
+            this.router.navigateByUrl('/', {skipLocationChange: true})
+              .then(() => { this.router.navigate(['usuario']); } );
+          },     
+          error: error => {
+              this.mostrarMensajeError=false;
+              this.mensajeError = error;
+          }
+      }
+    );
   }
 
   private construirFormularioGasto() {

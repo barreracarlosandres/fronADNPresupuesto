@@ -39,5 +39,6 @@
     </div>  
     <div><button class="btn btn-primary" type="submit" >Crear gasto</button>        
     </div>
+    <div *ngIf="!mostrarMensajeError" class="alert alert-danger" role="alert">{{mensajeError.error.mensaje}}</div>
   </form>     
   

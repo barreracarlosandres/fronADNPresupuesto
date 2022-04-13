@@ -9,9 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PresupuestoModule } from '@presupuesto/presupuesto.module';
 import { GastoModule } from '@gasto/gasto.module';
 import { UsuarioModule } from '@usuario/usuario.module';
-
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+
 registerLocaleData(localeEs, 'es');
 
 
@@ -27,7 +27,7 @@ registerLocaleData(localeEs, 'es');
     BrowserAnimationsModule,
     PresupuestoModule,
     GastoModule,
-    UsuarioModule
+    UsuarioModule,
   ],
   providers: [CookieService, { provide: LOCALE_ID, useValue: 'es'} ],
     bootstrap: [AppComponent],

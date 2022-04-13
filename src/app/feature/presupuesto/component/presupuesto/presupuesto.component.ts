@@ -6,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PresupuestoComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit() { console.log(); }
 
 }

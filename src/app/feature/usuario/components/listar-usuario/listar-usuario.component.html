@@ -1,20 +1,21 @@
 <app-borrar-usuario #borrarUsuario></app-borrar-usuario>
 <app-actualizar-usuario #actualizarUsuario></app-actualizar-usuario>
-<div >
+<div>
   <h2>
     <p id="mydesc">Listado de Usuarios</p>
   </h2>  
   <div id="usuarios"> 
   <table class="table table-bordered table-striped table-hover">
     <caption>Listado actualizado de usuarios</caption>
-    <thead class="thead-dark table-bordered table-sm">
+    <thead id="cabecera" class="thead-dark table-bordered table-sm">
       <tr>
         <th scope="col">Id</th>
         <th scope="col">Identifiación</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th scope="col">Presupuesto</th>
+        <th scope="col">Gastos</th>
+        <th scope="col" colspan="2">Ajuste Usuarios</th>
       </tr>      
     </thead>
     <tbody class="usuarios">      
@@ -23,8 +24,10 @@
             <td>{{item.identificacionUsuario}}</td>
             <td>{{item.nombre}}</td>
             <td>{{item.apellido}}</td>
-            <td><button class="btn btn-primary" (click)="actualizarUsuario.datosActualizar(item)">Actualizar</button></td>
-            <td><button class="btn btn-danger" (click)="borrarUsuario.borrar(item)">Elimiar</button></td>
+            <td><button class="btn btn-primary" (click)="crear_presupuesto(item)">Crear Presupuesto</button></td>
+            <td><button class="btn btn-primary" (click)="crear_gasto(item)">Crear Gasto</button></td>
+            <td><button class="btn btn-primary" (click)="actualizarUsuario.datosActualizar(item)">Actualizar Usuario</button></td>
+            <td><button class="btn btn-danger" (click)="borrarUsuario.borrar(item)">Elimiar Usuario</button></td>                        
           </tr>                      
     </tbody>
   </table>

@@ -8,19 +8,18 @@ import { ActualizarPresupuestoComponent } from './component/actualizar-presupues
 import { PresupuestoService } from './shared/service/presupuesto.service';
 import { NgModule } from '@angular/core';
 
-
 @NgModule({
   declarations: [
     PresupuestoComponent,
     ListarPresupuestoComponent,    
     BorrarPresupuestoComponent,
     ActualizarPresupuestoComponent,
-    CrearPresupuestoComponent
+    CrearPresupuestoComponent,
   ],
   imports: [
     SharedModule,
     PresupuestoRoutingModule
   ],
-  providers: [PresupuestoService]
+  providers: [PresupuestoService],
 })
 export class PresupuestoModule { }
